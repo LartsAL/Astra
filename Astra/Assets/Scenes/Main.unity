@@ -133,6 +133,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1498705378}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &153156178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 153156180}
+  - component: {fileID: 153156179}
+  m_Layer: 0
+  m_Name: Clock
+  m_TagString: Clock
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &153156179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153156178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a12c1a347107c488611e18de80b585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tickNumber: 0
+--- !u!4 &153156180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153156178}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.429092, y: 43.89593, z: -119.92615}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &200952872 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7549465303169498965, guid: a3d87f35fe854914499a6244c201516e,
@@ -758,6 +802,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moonman
       objectReference: {fileID: 0}
+    - target: {fileID: 6657473716113342956, guid: aa254b85c829f1d49bc07a1ffeabcdd7,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6657473716113342956, guid: aa254b85c829f1d49bc07a1ffeabcdd7,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6657473716113342956, guid: aa254b85c829f1d49bc07a1ffeabcdd7,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6657473716113342959, guid: aa254b85c829f1d49bc07a1ffeabcdd7,
         type: 3}
       propertyPath: m_RootOrder
@@ -1250,7 +1309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1193309447
 Transform:
   m_ObjectHideFlags: 0
@@ -1301,7 +1360,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1

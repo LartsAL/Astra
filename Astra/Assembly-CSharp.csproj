@@ -64,13 +64,14 @@
     <Compile Include="Assets\PathCreator\Examples\Scripts\RoadMeshCreator.cs" />
     <Compile Include="Assets\Scripts\BiomeGenerator.cs" />
     <Compile Include="Assets\Scripts\CharacterControllerScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Follower.cs" />
     <Compile Include="Assets\Scripts\InventoryController.cs" />
     <Compile Include="Assets\Scripts\MapGeneratorScript.cs" />
     <Compile Include="Assets\Scripts\Rotator.cs" />
+    <Compile Include="Assets\Scripts\Slime.cs" />
     <Compile Include="Assets\Scripts\SortingLayer.cs" />
+    <Compile Include="Assets\Scripts\TicksCounter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

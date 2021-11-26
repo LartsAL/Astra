@@ -9,6 +9,7 @@ TagManager:
   - Heart
   - Tree
   - Generator
+  - Clock
   layers:
   - Default
   - TransparentFX

@@ -13,20 +13,28 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        objectMatrix = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().objectMatrix;
-        tileMatrix = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().tileMatrix;
+        //objectMatrix = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().objectMatrix;
+        //tileMatrix = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().tileMatrix;
         player = GameObject.FindGameObjectWithTag("Player");
-        size = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().size;
+        //size = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().size;
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        tileBiomeId = tileMatrix[Mathf.RoundToInt(player.transform.position.x / 1.6f), Mathf.RoundToInt(player.transform.position.y / 1.6f)];
+        if (tileMatrix != null)
+        {
+            Debug.LogWarning("Wth");
+        }
         if (Input.GetKeyDown("o"))
         {
+            Debug.LogWarning("hui");
             Spawn(TestEnemy, ChooseSpawnpoint());
         }
+        tileBiomeId = tileMatrix[Mathf.RoundToInt(player.transform.position.x / 1.6f), Mathf.RoundToInt(player.transform.position.y / 1.6f)];
+        
     }
 
     void Spawn(GameObject Enemy, Vector3 position)
@@ -47,5 +55,12 @@ public class EnemySpawner : MonoBehaviour
         }
         //int tileBiomeId = 3;
         return new Vector3(point.x, point.y, 0);    
+    }
+
+    public void GetData()
+    {
+        objectMatrix = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().objectMatrix;
+        tileMatrix = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().tileMatrix;
+        size = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().size;
     }
 }

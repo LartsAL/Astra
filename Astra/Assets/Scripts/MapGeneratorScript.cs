@@ -18,8 +18,12 @@ public class MapGeneratorScript : MonoBehaviour
 
 	private NavMeshSurface2d surface;
 
+	private EnemySpawner ES; // !
+
 	void Start()
     {
+		ES = GameObject.FindGameObjectWithTag("Player").GetComponent<EnemySpawner>(); // !
+
 		surface = GameObject.Find("NavMesh 2D").GetComponent<NavMeshSurface2d>();
 
 		tileMatrix = GeneratetileMatrix(size);
@@ -61,12 +65,17 @@ public class MapGeneratorScript : MonoBehaviour
 		}
 
 		surface.BuildNavMesh();
+
+		ES.GetData(); // !
 	}
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Z))
+		{
+			surface.BuildNavMesh();
+		}
     }
 
 	public void GenerateSingleObject(int [,] tileMatrix, int[,] objectMatrix, int id, int biomeid)
