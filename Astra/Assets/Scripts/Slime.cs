@@ -8,6 +8,9 @@ public class Slime : MonoBehaviour
     [SerializeField] Transform target;
 
     private NavMeshAgent agent;
+    public Rigidbody2D rb;
+    private Vector3 StartScale;
+
     public int meleeDamagePeriod = 40;
     private int meleeDamageCooldown = 0;
     private GameObject player;
@@ -15,6 +18,9 @@ public class Slime : MonoBehaviour
 
     void Start()
     {
+        rb = this.GetComponent<Rigidbody2D>();
+        StartScale = transform.localScale;
+
         clock = GameObject.FindGameObjectWithTag("Clock");
         player = GameObject.FindGameObjectWithTag("Player");
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -31,10 +37,15 @@ public class Slime : MonoBehaviour
     void Update()
     {
         agent.SetDestination(target.position);
+
         MeleeDamageReload();
-        if (Input.GetKey("z"))
+        
+        if (player.transform.position.x - transform.position.x < 0)
         {
-            //agent.Stop
+            transform.localScale = new Vector3(-StartScale.x, StartScale.y, StartScale.z);
+        } else
+        {
+            transform.localScale = new Vector3(StartScale.x, StartScale.y, StartScale.z);
         }
     }
     private void OnCollisionStay2D(Collision2D collision)

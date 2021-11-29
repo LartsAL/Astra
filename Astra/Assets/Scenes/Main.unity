@@ -162,6 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79a12c1a347107c488611e18de80b585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previousTickNumber: 0
+  tickNumberChange: 0
   tickNumber: 0
 --- !u!4 &153156180
 Transform:

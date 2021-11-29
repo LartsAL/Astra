@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
         }
         if (Input.GetKeyDown("o"))
         {
-            Debug.LogWarning("hui");
+            Debug.LogWarning("wow 0-0");
             Spawn(TestEnemy, ChooseSpawnpoint());
         }
         tileBiomeId = tileMatrix[Mathf.RoundToInt(player.transform.position.x / 1.6f), Mathf.RoundToInt(player.transform.position.y / 1.6f)];
