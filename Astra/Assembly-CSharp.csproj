@@ -64,6 +64,7 @@
     <Compile Include="Assets\PathCreator\Examples\Scripts\RoadMeshCreator.cs" />
     <Compile Include="Assets\Scripts\BiomeGenerator.cs" />
     <Compile Include="Assets\Scripts\CharacterControllerScript.cs" />
+    <Compile Include="Assets\Scripts\EnemyInfo.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Follower.cs" />
     <Compile Include="Assets\Scripts\InventoryController.cs" />

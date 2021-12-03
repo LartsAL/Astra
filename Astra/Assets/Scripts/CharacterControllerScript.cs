@@ -21,7 +21,6 @@ public class CharacterControllerScript : MonoBehaviour
 
     bool speedHackEnabled = false;
     bool noColliderHackEnabled = false;
-    // Start is called before the first frame update
     void Start()
     {
         normalSpeed = speed;
@@ -36,7 +35,7 @@ public class CharacterControllerScript : MonoBehaviour
         hp = maxHp;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         RenderHearts();

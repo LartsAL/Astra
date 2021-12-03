@@ -7,13 +7,11 @@ public class TicksCounter : MonoBehaviour
     public int previousTickNumber;
     public int tickNumberChange;
     public int tickNumber;
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine("Tick");
     }
 
-    // Update is called once per frame
     void Update()
     {
         CalculateTickNumberChange();

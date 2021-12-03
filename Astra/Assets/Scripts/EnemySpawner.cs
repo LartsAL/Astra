@@ -1,22 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public List<int> priorities = new List<int>();
     public GameObject TestEnemy;
+    public GameObject[] Enemies;
     private int[,] objectMatrix;
     private int[,] tileMatrix;
     private GameObject player;
+    private GameObject clock;
     private int tileBiomeId;
     private int size;
+    private int tickNumberChange;
+    private int tickNumber;
     // Start is called before the first frame update
     void Start()
     {
         //objectMatrix = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().objectMatrix;
         //tileMatrix = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().tileMatrix;
         player = GameObject.FindGameObjectWithTag("Player");
+        clock = GameObject.FindGameObjectWithTag("Clock");
         //size = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().size;
+        for (int i=0; i<100; i++)
+            {
+                priorities.Add(i);
+            }
 
         
     }
@@ -24,13 +36,14 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (tileMatrix != null)
+        tickNumberChange = clock.GetComponent<TicksCounter>().tickNumberChange;
+        tickNumber = clock.GetComponent<TicksCounter>().tickNumber;
+        if (tickNumberChange>0)
         {
-            Debug.LogWarning("Wth");
+            TryToSpawnAnyone();
         }
         if (Input.GetKeyDown("o"))
         {
-            Debug.LogWarning("wow 0-0");
             Spawn(TestEnemy, ChooseSpawnpoint());
         }
         tileBiomeId = tileMatrix[Mathf.RoundToInt(player.transform.position.x / 1.6f), Mathf.RoundToInt(player.transform.position.y / 1.6f)];
@@ -38,8 +51,14 @@ public class EnemySpawner : MonoBehaviour
     }
 
     void Spawn(GameObject Enemy, Vector3 position)
-    {           
-            Instantiate(Enemy, position, Quaternion.identity);
+    {
+        GameObject spawned = Instantiate(Enemy, position, Quaternion.identity);
+        
+         priorities = priorities.OrderBy(x => x).ToList();
+         spawned.GetComponent<NavMeshAgent>().avoidancePriority = priorities[0];
+         priorities.RemoveAt(0);
+        
+        
     }
     Vector3 ChooseSpawnpoint()
     {
@@ -53,7 +72,6 @@ public class EnemySpawner : MonoBehaviour
         {
             goto choose;
         }
-        //int tileBiomeId = 3;
         return new Vector3(point.x, point.y, 0);    
     }
 
@@ -62,5 +80,17 @@ public class EnemySpawner : MonoBehaviour
         objectMatrix = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().objectMatrix;
         tileMatrix = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().tileMatrix;
         size = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().size;
+    }
+
+    public void TryToSpawnAnyone()
+    {
+        foreach (GameObject i in Enemies)
+        {
+            int randomNumber = Random.Range(1, 100);
+            if(tickNumber % i.GetComponent<EnemyInfo>().spawnAttemptRate == 0 && randomNumber < i.GetComponent<EnemyInfo>().spawnChance && tileBiomeId == i.GetComponent<EnemyInfo>().biomeId)
+            {
+                Spawn(i, ChooseSpawnpoint());
+            }
+        }
     }
 }

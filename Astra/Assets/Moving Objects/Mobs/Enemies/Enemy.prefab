@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 2309649512552693859}
   - component: {fileID: 2309649512552693858}
   - component: {fileID: 9005828817700904352}
+  - component: {fileID: 4831986149784686561}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +148,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.75
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 0
   m_AutoRepath: 0
@@ -168,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  rb: {fileID: 0}
   meleeDamagePeriod: 42
 --- !u!95 &9005828817700904352
 Animator:
@@ -188,3 +190,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4831986149784686561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2309649512552693881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7042dd6a4ac4db4586fa091c55d22bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  biomeId: 1
+  spawnAttemptRate: 100
+  spawnChance: 50
+  maxAmount: 5

@@ -5,10 +5,9 @@ using System;
 using System.IO;
 using System.Linq;
 using UnityEngine.AI;
-//if (randomNumber <= percentage && !(objectMatrix[(int)Mathf.Abs(i - 1), j] == id))
 public class MapGeneratorScript : MonoBehaviour
 {
-	//public Component NavMeshModifier;
+
 	public Transform NavMesh;
 	public GameObject[] grasstiles = new GameObject[10];
 	public GameObject[] objects;
@@ -44,7 +43,6 @@ public class MapGeneratorScript : MonoBehaviour
 			{
 				GameObject a =  Instantiate(grasstiles[tileMatrix[i, j]], new Vector2(i*1.6f, j*1.6f), grasstiles[tileMatrix[i, j]].transform.rotation);
 				a.transform.SetParent(NavMesh);
-				//a.AddComponent(typeof(NavMeshModifier));
 			}
 			
 		}
@@ -69,7 +67,6 @@ public class MapGeneratorScript : MonoBehaviour
 		ES.GetData(); // !
 	}
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z))
@@ -87,13 +84,7 @@ public class MapGeneratorScript : MonoBehaviour
 		{
 			goto rand;
 		}
-		/*while (tileMatrix[x, y] != biomeid || objectMatrix[x, y] != 0)
-		{
-			x = UnityEngine.Random.Range(0, tileMatrix.GetLength(0));
-			y = UnityEngine.Random.Range(0, tileMatrix.GetLength(1));
-		}*/
 		objectMatrix[x, y] = id;
-		//Debug.LogWarning("bibboibbubuobi");
 		
 	}
 	public int[,] GeneratetileMatrix(int size)
@@ -263,7 +254,6 @@ public class MapGeneratorScript : MonoBehaviour
 	}
 	public void Summon(int[,] tileMatrix, int[,] objectMatrix)
 	{
-		//Debug.LogWarning("snussnussnus");
 		for (int i = 0; i < tileMatrix.GetLength(0); i++)
 		{
 			for (int j = 0; j < tileMatrix.GetLength(1); j++)

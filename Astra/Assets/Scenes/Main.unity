@@ -1818,9 +1818,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   matrixSize: 300
   tiles:
-  - {fileID: 8544824526304969325, guid: 47a8df43f98276941bdaf604f468d6a9, type: 3}
-  - {fileID: 5280929126875140748, guid: a306d7b545bca7c44a2462396fdbc66d, type: 3}
   - {fileID: 3268118783088357517, guid: 51b9da79a5917ef4c82edc7f13d15a41, type: 3}
+  - {fileID: 5280929126875140748, guid: a306d7b545bca7c44a2462396fdbc66d, type: 3}
+  - {fileID: 8544824526304969325, guid: 47a8df43f98276941bdaf604f468d6a9, type: 3}
   - {fileID: 3268118783088357517, guid: 51b9da79a5917ef4c82edc7f13d15a41, type: 3}
   - {fileID: 8579084526953106824, guid: 574d3d08dfc6cbe418e3f69cd7f2a618, type: 3}
   - {fileID: 3268118783088357517, guid: 51b9da79a5917ef4c82edc7f13d15a41, type: 3}
@@ -1856,9 +1856,9 @@ MonoBehaviour:
   NavMesh: {fileID: 1890404273}
   grasstiles:
   - {fileID: 1693400844172757334, guid: f59cf5b13fa3a2847893cd26c1b9bf1a, type: 3}
-  - {fileID: 7835431687488382967, guid: 4d2edeb4a47ef404c9c078dfd6d73a1a, type: 3}
-  - {fileID: 1724729084349967176, guid: 3b32b6bb476382a40bcacc9aa2e570c9, type: 3}
   - {fileID: 2527411125598452003, guid: 02a9946f882e3bf4f91f98b753bbda29, type: 3}
+  - {fileID: 1724729084349967176, guid: 3b32b6bb476382a40bcacc9aa2e570c9, type: 3}
+  - {fileID: 7835431687488382967, guid: 4d2edeb4a47ef404c9c078dfd6d73a1a, type: 3}
   - {fileID: 7420307190876200731, guid: 52aeeff2a6f8769459dacf3e27f93018, type: 3}
   - {fileID: 4284510336286093650, guid: 3f486db66f9ec4d4d8e65abd46a28b64, type: 3}
   - {fileID: 2527411125598452003, guid: 02a9946f882e3bf4f91f98b753bbda29, type: 3}
@@ -2195,8 +2195,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 364ee33c0835db141b5c9eb2c827dc6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priorities: 
   TestEnemy: {fileID: 2309649512552693881, guid: 54334d87a3da4644db7c8f30b330a576,
     type: 3}
+  Enemies:
+  - {fileID: 2309649512552693881, guid: 54334d87a3da4644db7c8f30b330a576, type: 3}
 --- !u!4 &1834237681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6294441822924527892, guid: 380fd62a74188854d845dacc88417a3c,

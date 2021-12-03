@@ -22,14 +22,10 @@ public class Follower : MonoBehaviour
     private void Update()
     {
         transform.position = new Vector3(0, 0, 0);
-        Anchors[0] = enemy.transform.position / 3;// - transform.position;
-        Anchors[1] = player.transform.position / 3;// - transform.position;
-        //enemy1.transform.position = pathCreator.path.GetPointAtDistance(0);
-        //enemy2.transform.position = pathCreator.path.GetPointAtDistance(pathCreator.path.length-0.0000001f);
+        Anchors[0] = enemy.transform.position / 3;
+        Anchors[1] = player.transform.position / 3;
         float length = Mathf.Sqrt(Mathf.Pow(Anchors[0].x - Anchors[1].x, 2) + Mathf.Pow(Anchors[0].y - Anchors[1].y, 2));
-        //enemy.transform.position = pathCreator.path.GetPointAtDistance(speed*Time.deltaTime/length);
         rb.MovePosition(pathCreator.path.GetPointAtDistance(speed * Time.deltaTime / length));
-        //rb.velocity = pathCreator.path.GetPointAtDistance(speed * Time.deltaTime / length) - enemy.transform.position;
     }
     private void FixedUpdate()
     {

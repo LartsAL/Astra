@@ -7,6 +7,7 @@ public class Slime : MonoBehaviour
 {
     [SerializeField] Transform target;
 
+
     private NavMeshAgent agent;
     public Rigidbody2D rb;
     private Vector3 StartScale;
