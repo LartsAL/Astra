@@ -12,6 +12,7 @@ TagManager:
   - Clock
   - Enemy
   - Boss
+  - Weapon
   layers:
   - Default
   - TransparentFX

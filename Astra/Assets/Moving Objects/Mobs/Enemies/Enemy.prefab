@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2309649512552693858}
   - component: {fileID: 9005828817700904352}
   - component: {fileID: 4831986149784686561}
+  - component: {fileID: -4892611044641851135}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -202,7 +203,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7042dd6a4ac4db4586fa091c55d22bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 
   biomeId: 1
   spawnAttemptRate: 100
   spawnChance: 50
   maxAmount: 5
+  curAmount: 0
+--- !u!114 &-4892611044641851135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2309649512552693881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b4cd0c17aea6747a4a2a4e4445237e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 10
+  vulCDfixed: 1

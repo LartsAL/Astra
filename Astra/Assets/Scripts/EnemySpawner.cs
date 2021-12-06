@@ -6,7 +6,8 @@ using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public List<int> priorities = new List<int>();
+    //private List<GameObject> aliveEnemies = new List<GameObject>(); // Список живых врагов, влияет на блокировку спавна новых врагов
+    public List<int> priorities = new List<int>(); // Надо, без этого они толкаются
     public GameObject TestEnemy;
     public GameObject[] Enemies;
     private int[,] objectMatrix;
@@ -17,23 +18,23 @@ public class EnemySpawner : MonoBehaviour
     private int size;
     private int tickNumberChange;
     private int tickNumber;
-    // Start is called before the first frame update
+ 
     void Start()
     {
-        //objectMatrix = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().objectMatrix;
-        //tileMatrix = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().tileMatrix;
+        foreach (GameObject i in Enemies)
+        {
+            i.GetComponent<EnemyInfo>().curAmount = 0;
+        }
+
         player = GameObject.FindGameObjectWithTag("Player");
         clock = GameObject.FindGameObjectWithTag("Clock");
         //size = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().size;
         for (int i=0; i<100; i++)
-            {
-                priorities.Add(i);
-            }
-
-        
+        {
+            priorities.Add(i);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         tickNumberChange = clock.GetComponent<TicksCounter>().tickNumberChange;
@@ -52,13 +53,14 @@ public class EnemySpawner : MonoBehaviour
 
     void Spawn(GameObject Enemy, Vector3 position)
     {
-        GameObject spawned = Instantiate(Enemy, position, Quaternion.identity);
-        
-         priorities = priorities.OrderBy(x => x).ToList();
-         spawned.GetComponent<NavMeshAgent>().avoidancePriority = priorities[0];
-         priorities.RemoveAt(0);
-        
-        
+        if (Enemy.GetComponent<EnemyInfo>().curAmount < Enemy.GetComponent<EnemyInfo>().maxAmount)
+        {
+            GameObject spawned = Instantiate(Enemy, position, Quaternion.identity);
+            Enemy.GetComponent<EnemyInfo>().curAmount++;
+            priorities = priorities.OrderBy(x => x).ToList();
+            spawned.GetComponent<NavMeshAgent>().avoidancePriority = priorities[0];
+            priorities.RemoveAt(0);
+        }
     }
     Vector3 ChooseSpawnpoint()
     {

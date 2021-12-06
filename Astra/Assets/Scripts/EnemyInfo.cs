@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EnemyInfo : MonoBehaviour
 {
+    public string type;
     public int biomeId;
-    public int spawnAttemptRate; //раз во сколько кадров спавнит с шансом, указанным в spawnChance
+    public int spawnAttemptRate; // Раз во сколько тиков спавнит с шансом, указанным в spawnChance
     public int spawnChance;
-    public int maxAmount; //пока ни на что не влияет
+    public int maxAmount; // Максимальное кол-во противников
+    public int curAmount; // Текущее кол-во противников
 }
