@@ -57,7 +57,7 @@ public class CharacterControllerScript : MonoBehaviour
             {
                 rb.velocity = new Vector3(speed, rb.velocity.y, 0);
             }
-            transform.localScale = startScale;
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
         if (Input.GetKey("a"))
         {
@@ -70,7 +70,7 @@ public class CharacterControllerScript : MonoBehaviour
             {
                 rb.velocity = new Vector3(-speed, rb.velocity.y, 0);
             }
-            transform.localScale = new Vector3(startScale.x * -1, startScale.y, startScale.z);
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
         if (!(Input.GetKey("a")) && !(Input.GetKey("d")))
         {

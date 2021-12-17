@@ -101,7 +101,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000007450581, y: -0.016103692}
+  m_Offset: {x: -0.00079429895, y: -0.016103692}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -112,7 +112,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.14191215, y: 0.07560295}
+  m_Size: {x: 0.15938567, y: 0.07560295}
   m_EdgeRadius: 0
 --- !u!50 &2309649512552693861
 Rigidbody2D:
@@ -149,7 +149,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0.75
+  m_StoppingDistance: 0.3
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 0
   m_AutoRepath: 0
@@ -203,12 +203,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7042dd6a4ac4db4586fa091c55d22bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefab: {fileID: 2309649512552693881}
   type: 
   biomeId: 1
   spawnAttemptRate: 100
   spawnChance: 50
   maxAmount: 5
-  curAmount: 0
+  curAmount: 5
 --- !u!114 &-4892611044641851135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,5 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b4cd0c17aea6747a4a2a4e4445237e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 10
-  vulCDfixed: 1
+  anim: {fileID: 9005828817700904352}
+  maxHp: 30
+  hp: 0
+  vulCDfixed: 3

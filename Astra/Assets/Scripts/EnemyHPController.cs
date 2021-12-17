@@ -13,10 +13,12 @@ public class EnemyHPController : MonoBehaviour
     private int tickNumber;
     private int vulCD; //длительность неуязвимости
     public int vulCDfixed;
+    private bool isAlive;
 
     // Start is called before the first frame update
     void Start()
     {
+        isAlive = true;
         anim = this.gameObject.GetComponent<Animator>();
         clock = GameObject.FindGameObjectWithTag("Clock");
         vulCD = vulCDfixed;
@@ -29,15 +31,14 @@ public class EnemyHPController : MonoBehaviour
     {
         tickNumberChange = clock.GetComponent<TicksCounter>().tickNumberChange;
         tickNumber = clock.GetComponent<TicksCounter>().tickNumber;
-        if (hp <= 0)
+        if (hp <= 0 && isAlive)
         {
-            Debug.LogWarning("Плыли мы по морю, ветер мачту рвал");
             Death();
         }
         if (!isVulnerable)
         {
             vulCD -= tickNumberChange;
-            if (vulCD < 0)
+            if (vulCD <= 0)
             {
                 isVulnerable = true;
                 vulCD = vulCDfixed;
@@ -45,9 +46,9 @@ public class EnemyHPController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Weapon" && isVulnerable)
+        if (collision.gameObject.tag == "Weapon" && isVulnerable && collision.gameObject.GetComponent<WeaponScript>().canDamage)
         {
             hp -= collision.gameObject.GetComponent<WeaponScript>().dmg;
             isVulnerable = false;
@@ -55,13 +56,27 @@ public class EnemyHPController : MonoBehaviour
         }
     }
 
+
     public void Death()
     {
-        Destroy(this.gameObject);
+        isAlive = false;
+        Destroy(GetComponent<BoxCollider2D>());
+        GetComponent<EnemyInfo>().prefab.GetComponent<EnemyInfo>().curAmount -= 1;
+        anim.SetTrigger("isDying");
+        StartCoroutine("Die");
+        
     }
 
     public void GetDamaged()
     {
-
+        if (hp>0) {
+            anim.SetTrigger("WeeWee");
+        }
+        //anim.SetBool("isGettingDamaged", true);
+    }
+    IEnumerator Die()
+    {
+        yield return new WaitForSeconds(0.433f);
+        Destroy(this.gameObject);
     }
 }

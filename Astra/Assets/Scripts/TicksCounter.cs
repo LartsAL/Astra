@@ -25,7 +25,7 @@ public class TicksCounter : MonoBehaviour
 
     IEnumerator Tick()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(1/20f);
         tickNumber += 1;
         StartCoroutine("Tick");
     }

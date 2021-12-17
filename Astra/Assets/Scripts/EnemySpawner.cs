@@ -28,7 +28,6 @@ public class EnemySpawner : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         clock = GameObject.FindGameObjectWithTag("Clock");
-        //size = GameObject.FindGameObjectWithTag("Generator").GetComponent<MapGeneratorScript>().size;
         for (int i=0; i<100; i++)
         {
             priorities.Add(i);
@@ -57,6 +56,7 @@ public class EnemySpawner : MonoBehaviour
         {
             GameObject spawned = Instantiate(Enemy, position, Quaternion.identity);
             Enemy.GetComponent<EnemyInfo>().curAmount++;
+            spawned.GetComponent<EnemyInfo>().prefab = Enemy;
             priorities = priorities.OrderBy(x => x).ToList();
             spawned.GetComponent<NavMeshAgent>().avoidancePriority = priorities[0];
             priorities.RemoveAt(0);

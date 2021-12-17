@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\SortingLayer.cs" />
     <Compile Include="Assets\Scripts\TicksCounter.cs" />
     <Compile Include="Assets\Scripts\WeaponScript.cs" />
+    <Compile Include="Assets\SpinScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyInfo : MonoBehaviour
 {
+    public GameObject prefab;
     public string type;
     public int biomeId;
     public int spawnAttemptRate; // Раз во сколько тиков спавнит с шансом, указанным в spawnChance
