@@ -61,6 +61,7 @@ public class EnemyHPController : MonoBehaviour
     {
         isAlive = false;
         Destroy(GetComponent<BoxCollider2D>());
+        Destroy(GetComponent<UnityEngine.AI.NavMeshAgent>());
         GetComponent<EnemyInfo>().prefab.GetComponent<EnemyInfo>().curAmount -= 1;
         anim.SetTrigger("isDying");
         StartCoroutine("Die");

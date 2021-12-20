@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterControllerScript : MonoBehaviour
 {
@@ -184,22 +185,22 @@ public class CharacterControllerScript : MonoBehaviour
         {
             if (i < hp / 2)
             {
-                hearts[i].GetComponent<SpriteRenderer>().sprite = fullHeart;
+                hearts[i].GetComponent<Image>().sprite = fullHeart;
             }
             if(i == hp / 2)
             {
                 if (hp % 2 == 1) 
                 { 
-                    hearts[i].GetComponent<SpriteRenderer>().sprite = halfHeart;
+                    hearts[i].GetComponent<Image>().sprite = halfHeart;
                 }
                 else
                 {
-                    hearts[i].GetComponent<SpriteRenderer>().sprite = emptyHeart;
+                    hearts[i].GetComponent<Image>().sprite = emptyHeart;
                 }
             }
             if (i > hp /2)
             {
-                hearts[i].GetComponent<SpriteRenderer>().sprite = emptyHeart;
+                hearts[i].GetComponent<Image>().sprite = emptyHeart;
             }
         }
     }

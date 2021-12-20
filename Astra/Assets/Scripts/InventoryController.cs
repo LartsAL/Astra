@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class InventoryController : MonoBehaviour
 {
     List<GameObject> nearItems = new List<GameObject>();
-    public GameObject[] slots;
+    public Image[] slots;
     private GameObject[] items;
-    public GameObject lightSlot;
+    public Image lightSlot;
     private int chosenSlot = 1;
 
     private float pickupCooldown;
@@ -21,7 +21,7 @@ public class InventoryController : MonoBehaviour
     {
         pickupCooldown = 0.1f;
         ChooseSlot();
-        lightSlot.transform.position = slots[chosenSlot - 1].transform.position;
+        lightSlot.rectTransform.position = slots[chosenSlot - 1].rectTransform.position;
         PickupItems();
         if (items[chosenSlot - 1] != null && Input.GetKey("q"))
         {
@@ -75,9 +75,19 @@ public class InventoryController : MonoBehaviour
                     DropItem(items[chosenSlot - 1]);
                 }
                 items[chosenSlot - 1] = nearestObject;
+
                 nearestObject.transform.position = slots[chosenSlot - 1].transform.position;
                 nearestObject.transform.SetParent(slots[chosenSlot - 1].transform);
-                nearestObject.GetComponent<SpriteRenderer>().sortingOrder = 9;
+                //nearestObject.GetComponent<SpriteRenderer>().sortingOrder = 9;
+
+                slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().sprite = nearestObject.GetComponent<SpriteRenderer>().sprite; // Ебать, оно не работает
+
+                // Што это за костыли, ёбаный рот
+                Color c = slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().color;
+                c.a = 1;
+                slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().color = c;
+
+                nearestObject.GetComponent<SpriteRenderer>().enabled = false;
             }
             nearItems.Clear();
             Invoke("PickupTimer", pickupCooldown);
@@ -87,6 +97,16 @@ public class InventoryController : MonoBehaviour
     private void DropItem(GameObject item)
     {
         item.GetComponent<SpriteRenderer>().sortingOrder = 0;
+
+        slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().sprite = null;
+
+        // Костылиииии
+        Color c = slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().color;
+        c.a = 0;
+        slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().color = c;
+
+        item.GetComponent<SpriteRenderer>().enabled = true;//
+
         item.transform.parent = null;
         item.transform.position = transform.position;
         items[chosenSlot - 1] = null;
