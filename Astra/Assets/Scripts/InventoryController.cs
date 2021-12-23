@@ -9,7 +9,7 @@ public class InventoryController : MonoBehaviour
     public Image[] slots;
     private GameObject[] items;
     public Image lightSlot;
-    private int chosenSlot = 1;
+    public int chosenSlot = 1;
 
     private float pickupCooldown;
     private bool canPickup = true;
