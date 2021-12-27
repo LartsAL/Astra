@@ -7,7 +7,7 @@ public class InventoryController : MonoBehaviour
 {
     List<GameObject> nearItems = new List<GameObject>();
     public Image[] slots;
-    private GameObject[] items;
+    public GameObject[] items;
     public Image lightSlot;
     public int chosenSlot = 1;
 

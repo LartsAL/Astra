@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class SpinScript : MonoBehaviour
 {
+    public GameObject player;
     public float speed;
     public bool isSpinning;
     public float angularSpeed;
     private float lastAngle;
+    public GameObject weapon;
+    public InventoryController ic;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+        ic = player.GetComponent<InventoryController>();
     }
 
     // Update is called once per frame
@@ -29,6 +33,33 @@ public class SpinScript : MonoBehaviour
     {
         angularSpeed = Mathf.Abs(lastAngle - transform.rotation.z) * 1000f;
         lastAngle = transform.rotation.z;
+        //if (ic.items[ic.chosenSlot-1].GetComponent<WeaponReferenceScript>() != null)
+        if (ic.items[ic.chosenSlot - 1] != null)
+        {
+            if (ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>() == null)
+            {
+                Destroy(weapon);
+                weapon = null;
+            }
+            if (weapon == null && ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>().weapon != null)
+            //if (weapon.GetComponent<WeaponScript>().type != ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>().weapon.GetComponent<WeaponScript>().type || (weapon == null && ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>().weapon != null))
+            {
+                Debug.LogWarning("Mr.Cum");
+                Destroy(weapon);
+                weapon = null;
+                weapon = Instantiate(ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>().weapon);
+                weapon.transform.SetParent(this.gameObject.transform);
+                weapon.transform.localPosition = new Vector3(0.5f, 0, 0);
+                //this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+                //weapon.transform.localRotation = this.gameObject.transform.rotation;
+                weapon.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
+        }
+        else
+        {
+            Destroy(weapon);
+            weapon = null;
+        }
     }
 
     void Spin()

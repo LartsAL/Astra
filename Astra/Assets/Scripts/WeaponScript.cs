@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponScript : MonoBehaviour
 {
+    public string type;
     private float angularSpeed;
     public bool canDamage;
     public int fixeddmg;
