@@ -80,9 +80,9 @@ public class InventoryController : MonoBehaviour
                 nearestObject.transform.SetParent(slots[chosenSlot - 1].transform);
                 //nearestObject.GetComponent<SpriteRenderer>().sortingOrder = 9;
 
-                slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().sprite = nearestObject.GetComponent<SpriteRenderer>().sprite; // Ебать, оно не работает
+                slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().sprite = nearestObject.GetComponent<SpriteRenderer>().sprite; // Оно не работает (с чего мы взяли, что не работает?)
 
-                // Што это за костыли, ёбаный рот
+                // Што это за костыли
                 Color c = slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().color;
                 c.a = 1;
                 slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().color = c;

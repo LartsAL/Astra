@@ -11,11 +11,7 @@ public class WeaponScript : MonoBehaviour
     public int dmg;
     public float requiredAngSpeed;
     public float bonusDamage;
-
-    void Start()
-    {
-        
-    }
+    public float handOffset;
 
     void Update()
     {

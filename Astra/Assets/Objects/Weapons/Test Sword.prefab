@@ -121,9 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d78d6eb0d70d941b4723d1c66ae7ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: StartSword
+  type: Start Sword
   canDamage: 0
   fixeddmg: 10
   dmg: 10
   requiredAngSpeed: 50
   bonusDamage: 0.1
+  handOffset: 0.5

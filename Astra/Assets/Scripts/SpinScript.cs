@@ -21,12 +21,10 @@ public class SpinScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (isSpinning)
         {
             Spin();
         }
-        
     }
 
     private void FixedUpdate()
@@ -41,7 +39,7 @@ public class SpinScript : MonoBehaviour
                 Destroy(weapon);
                 weapon = null;
             }
-            if (weapon == null && ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>().weapon != null)
+            if (weapon == null && ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>().weapon != null || weapon != null && ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>().weapon.GetComponent<WeaponScript>().type != weapon.GetComponent<WeaponScript>().type)
             //if (weapon.GetComponent<WeaponScript>().type != ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>().weapon.GetComponent<WeaponScript>().type || (weapon == null && ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>().weapon != null))
             {
                 Debug.LogWarning("Mr.Cum");
@@ -49,7 +47,7 @@ public class SpinScript : MonoBehaviour
                 weapon = null;
                 weapon = Instantiate(ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>().weapon);
                 weapon.transform.SetParent(this.gameObject.transform);
-                weapon.transform.localPosition = new Vector3(0.5f, 0, 0);
+                weapon.transform.localPosition = new Vector3(weapon.GetComponent<WeaponScript>().handOffset, 0, 0); // Ранее (0.5f, 0, 0)
                 //this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 //weapon.transform.localRotation = this.gameObject.transform.rotation;
                 weapon.transform.localRotation = Quaternion.Euler(0, 0, 0);

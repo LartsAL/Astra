@@ -23,11 +23,12 @@ public class GameStats : MonoBehaviour
 
         screenx = Screen.width;
         screeny = Screen.height;
+
+        InvokeRepeating("FPSUpdate", 0.0f, 0.5f);
     }
 
     void Update()
     {
-        fps = 1.0f / Time.deltaTime;
         posx = player.transform.position.x;
         posy = player.transform.position.y;
         hp = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterControllerScript>().hp;
@@ -35,11 +36,16 @@ public class GameStats : MonoBehaviour
         enemiesCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
     }
 
+    void FPSUpdate()
+    {
+        fps = 1.0f / Time.deltaTime;
+    }
+
     void FixedUpdate()
     {
         statsText.text =
             "FPS: " + $"{(int)fps}\n"
-            + "Screen Size: " + $"{screenx}" + "*" + $"{screeny}\n"
+            + "Screen Resolution: " + $"{screenx}" + "*" + $"{screeny}\n"
             + "X: " + $"{Math.Round(posx, 2)}\n"
             + "Y: " + $"{Math.Round(posy, 2)}\n"
             + "Hp: " + $"{hp}\n"
