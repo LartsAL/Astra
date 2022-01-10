@@ -36,6 +36,7 @@ public class MapGeneratorScript : MonoBehaviour
 			}
 		}
 		GenerateMultiplyObjects(tileMatrix, objectMatrix, 1, 20, 2, 15, 1);
+		GenerateMultiplyObjects(tileMatrix, objectMatrix, 10, 10, 2, 15, 1);
 		GenerateSingleObject(tileMatrix, objectMatrix, 64, 1);
 		for (int i = 0; i < size; i++)
 		{
@@ -195,7 +196,7 @@ public class MapGeneratorScript : MonoBehaviour
 		{
 			for (int j = 0; j < size; j++)
 			{
-				if (distance == 0 && secondMatrix[i, j] == 0)
+				if (distance <= 0 && secondMatrix[i, j] == 0)
 				{
 					int randomNumber = UnityEngine.Random.Range(1, 101);
 					if (randomNumber <= percentage)
