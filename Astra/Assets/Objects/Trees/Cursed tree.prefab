@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4449674741244367939}
   - component: {fileID: 532176173391683651}
   - component: {fileID: 7822499489077782242}
-  - component: {fileID: 8447348195202827043}
+  - component: {fileID: 1309292922417015150}
   m_Layer: 0
   m_Name: Cursed tree
   m_TagString: Tree
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: 00000000
---- !u!208 &8447348195202827043
+--- !u!208 &1309292922417015150
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,9 +136,9 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.1}
+  m_Extents: {x: 0.3, y: 0.35, z: 0.1}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.15, z: 0}
   m_TimeToStationary: 0.5

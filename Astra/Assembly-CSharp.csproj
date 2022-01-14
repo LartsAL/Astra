@@ -62,22 +62,22 @@
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathSceneTool.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathSpawner.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\RoadMeshCreator.cs" />
-    <Compile Include="Assets\Scripts\BiomeGenerator.cs" />
-    <Compile Include="Assets\Scripts\CharacterControllerScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyHPController.cs" />
-    <Compile Include="Assets\Scripts\EnemyInfo.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawner.cs" />
-    <Compile Include="Assets\Scripts\Follower.cs" />
+    <Compile Include="Assets\Scripts\Enemy Controllers\EnemyHPController.cs" />
+    <Compile Include="Assets\Scripts\Enemy Controllers\EnemyInfo.cs" />
+    <Compile Include="Assets\Scripts\Enemy Controllers\Follower.cs" />
+    <Compile Include="Assets\Scripts\Enemy Controllers\SlimeAI.cs" />
     <Compile Include="Assets\Scripts\GameStats.cs" />
-    <Compile Include="Assets\Scripts\InventoryController.cs" />
-    <Compile Include="Assets\Scripts\MapGeneratorScript.cs" />
+    <Compile Include="Assets\Scripts\Player Controllers\CharacterControllerScript.cs" />
+    <Compile Include="Assets\Scripts\Player Controllers\InventoryController.cs" />
+    <Compile Include="Assets\Scripts\Player Controllers\SpinScript.cs" />
     <Compile Include="Assets\Scripts\Rotator.cs" />
-    <Compile Include="Assets\Scripts\SlimeAI.cs" />
     <Compile Include="Assets\Scripts\SortingLayer.cs" />
-    <Compile Include="Assets\Scripts\SpinScript.cs" />
     <Compile Include="Assets\Scripts\TicksCounter.cs" />
     <Compile Include="Assets\Scripts\WeaponReferenceScript.cs" />
     <Compile Include="Assets\Scripts\WeaponScript.cs" />
+    <Compile Include="Assets\Scripts\World Controllers\BiomeGenerator.cs" />
+    <Compile Include="Assets\Scripts\World Controllers\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\World Controllers\MapGeneratorScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
