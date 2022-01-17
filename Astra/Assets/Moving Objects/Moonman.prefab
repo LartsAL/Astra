@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - Tree
-  layers: 02000000
+  - Enemy
+  layers: 0200000002000000
 --- !u!61 &6264190073956363740
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -269,7 +270,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  items: []
   lightSlot: {fileID: 0}
+  chosenSlot: 1
 --- !u!58 &6657473716113342955
 CircleCollider2D:
   m_ObjectHideFlags: 0

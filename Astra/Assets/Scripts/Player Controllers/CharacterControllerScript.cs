@@ -28,10 +28,9 @@ public class CharacterControllerScript : MonoBehaviour
         startScale = transform.localScale;
         rb = GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
-        foreach (GameObject i in GameObject.FindGameObjectsWithTag("Heart"))
-        {
-            hearts.Add(i);
-        }
+        hearts.Add(GameObject.Find("Heart 1"));
+        hearts.Add(GameObject.Find("Heart 2"));
+        hearts.Add(GameObject.Find("Heart 3"));
         maxHp = hearts.Count() * 2;
         hp = maxHp;
     }

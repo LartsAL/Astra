@@ -39,6 +39,7 @@ public class MapGeneratorScript : MonoBehaviour
 		GenerateMultiplyObjects(tileMatrix, objectMatrix, 10, 3, 10, 15, 1, 0);
 		GenerateMultiplyObjects(tileMatrix, objectMatrix, 25, 10, 60, 15, 1, 3);
 		GenerateMultiplyObjects(tileMatrix, objectMatrix, 1, 100, 7, 15, 0, 3);
+		GenerateMultiplyObjects(tileMatrix, objectMatrix, 26, 10, 100, 15, 0, 3);
 		GenerateSingleObject(tileMatrix, objectMatrix, 64, 1);
 		for (int i = 0; i < size; i++)
 		{
