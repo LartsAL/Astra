@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHPController : MonoBehaviour
 {
     public Animator anim;
+    public float deathSeconds;
     public int maxHp;
     public int hp;
     private bool isVulnerable;
@@ -14,6 +15,7 @@ public class EnemyHPController : MonoBehaviour
     private int vulCD; //длительность неуязвимости
     public int vulCDfixed;
     private bool isAlive;
+    private TicksCounter TCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +26,14 @@ public class EnemyHPController : MonoBehaviour
         vulCD = vulCDfixed;
         isVulnerable = true;
         hp = maxHp;
+        TCounter = clock.GetComponent<TicksCounter>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        tickNumberChange = clock.GetComponent<TicksCounter>().tickNumberChange;
-        tickNumber = clock.GetComponent<TicksCounter>().tickNumber;
+        tickNumberChange = TCounter.tickNumberChange;
+        tickNumber = TCounter.tickNumber;
         if (hp <= 0 && isAlive)
         {
             Death();
@@ -64,7 +67,7 @@ public class EnemyHPController : MonoBehaviour
         Destroy(GetComponent<UnityEngine.AI.NavMeshAgent>());
         GetComponent<EnemyInfo>().prefab.GetComponent<EnemyInfo>().curAmount -= 1;
         anim.SetTrigger("isDying");
-        StartCoroutine("Die");
+        StartCoroutine(Die());
         
     }
 
@@ -77,7 +80,7 @@ public class EnemyHPController : MonoBehaviour
     }
     IEnumerator Die()
     {
-        yield return new WaitForSeconds(0.433f);
+        yield return new WaitForSeconds(deathSeconds);
         Destroy(this.gameObject);
     }
 }

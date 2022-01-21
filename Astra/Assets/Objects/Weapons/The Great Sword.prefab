@@ -125,6 +125,6 @@ MonoBehaviour:
   canDamage: 0
   fixeddmg: 20
   dmg: 20
-  requiredAngSpeed: 72.5
+  requiredAngSpeed: 40
   bonusDamage: 0.12
   handOffset: 1.575
