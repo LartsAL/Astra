@@ -76,7 +76,6 @@ public class EnemyHPController : MonoBehaviour
         if (hp>0) {
             anim.SetTrigger("WeeWee");
         }
-        //anim.SetBool("isGettingDamaged", true);
     }
     IEnumerator Die()
     {
