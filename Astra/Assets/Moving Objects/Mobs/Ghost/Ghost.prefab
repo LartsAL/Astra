@@ -146,7 +146,7 @@ MonoBehaviour:
   spawnAttemptRate: 100
   spawnChance: 30
   maxAmount: 3
-  curAmount: -3
+  curAmount: 0
 --- !u!114 &-4892611044641851135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 9005828817700904352}
   deathSeconds: 0.866
-  maxHp: 3
+  maxHp: 5
   hp: 0
   vulCDfixed: 3
 --- !u!70 &3941930650935144117

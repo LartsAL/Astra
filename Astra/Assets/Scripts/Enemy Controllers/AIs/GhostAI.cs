@@ -94,7 +94,12 @@ public class GhostAI : MonoBehaviour
         newAttempt.GetComponent<EnemyHPController>().hp = newAttempt.GetComponent<EnemyHPController>().maxHp;
         newAttempt.GetComponent<GhostAI>().reviveChance = reviveChance - 20;
         isReviving = false;
-
+        newAttempt.transform.localScale = StartScale;
+        int a = Random.Range(1, 4);
+        if (a == 1) { newAttempt.transform.position = newAttempt.transform.position + new Vector3(Random.Range(4.8f, 20f), Random.Range(4.8f, 20f), 0); }
+        if (a == 2) { newAttempt.transform.position = newAttempt.transform.position + new Vector3(Random.Range(4.8f, 20f)*-1, Random.Range(4.8f, 20f), 0); }
+        if (a == 3) { newAttempt.transform.position = newAttempt.transform.position + new Vector3(Random.Range(4.8f, 20f)*-1, Random.Range(4.8f, 20f)*-1, 0); }
+        if (a == 4) { newAttempt.transform.position = newAttempt.transform.position + new Vector3(Random.Range(4.8f, 20f), Random.Range(4.8f, 20f)*-1, 0); }
     }
 
     /*private void OnCollisionEnter2D(Collision2D collision)

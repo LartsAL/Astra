@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 9005828817700904352}
-  deathSeconds: 0.866
+  deathSeconds: 0.433
   maxHp: 30
   hp: 0
   vulCDfixed: 3
