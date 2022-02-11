@@ -6,9 +6,15 @@ using UnityEngine.UI;
 
 public class CharacterControllerScript : MonoBehaviour
 {
+    public bool isFrozen;
+    public float frostDuration;
+    private Color startColor;
+    private Color frostColor;
+
     public List<GameObject> hearts = new List<GameObject>();
     public int maxHp;
     public int hp;
+
     // Спрайты сердец
     public Sprite emptyHeart;
     public Sprite halfHeart;
@@ -24,6 +30,7 @@ public class CharacterControllerScript : MonoBehaviour
     bool noColliderHackEnabled = false;
     void Start()
     {
+        startColor = GetComponent<SpriteRenderer>().color;
         normalSpeed = speed;
         startScale = transform.localScale;
         rb = GetComponent<Rigidbody2D>();
@@ -33,16 +40,27 @@ public class CharacterControllerScript : MonoBehaviour
         hearts.Add(GameObject.Find("Heart 3"));
         maxHp = hearts.Count() * 2;
         hp = maxHp;
+        frostColor = new Color(0.4f, 0.4f, 1f, 1);
     }
 
 
     void Update()
     {
+        if (Input.GetKeyDown("v"))
+        {
+            isFrozen = true;
+        }
+        if (Input.GetKeyDown("b"))
+        {
+            isFrozen = false;
+        }
         RenderHearts();
 
         Move();
 
         Cheats();
+
+        StatusCheck();
     }
     private void Move()
     {
@@ -167,6 +185,32 @@ public class CharacterControllerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.KeypadMinus))
         {
             hp--;
+        }
+    }
+
+    void StatusCheck()
+    {
+        if (frostDuration>0)
+        {
+            isFrozen = true;
+            frostDuration -= Time.deltaTime;
+        }
+        else
+        {
+            isFrozen = false;
+        }
+        if (isFrozen)
+        {
+            GetComponent<SpriteRenderer>().color = frostColor;
+            speed = normalSpeed * 0.5f;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = startColor;
+
+            if (!speedHackEnabled) {
+                speed = normalSpeed;
+            }
         }
     }
     void RenderHearts()

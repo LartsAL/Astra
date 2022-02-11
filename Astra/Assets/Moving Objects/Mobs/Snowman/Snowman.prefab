@@ -104,7 +104,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00079429895, y: -0.016103692}
+  m_Offset: {x: 0.016720653, y: -0.5557475}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -115,7 +115,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15938567, y: 0.07560295}
+  m_Size: {x: 0.644186, y: 0.5034001}
   m_EdgeRadius: 0
 --- !u!50 &2309649512552693861
 Rigidbody2D:
@@ -129,7 +129,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -145,7 +145,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2309649512552693881}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.08
   m_Speed: 1.5
@@ -193,11 +193,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 2309649512552693881}
   type: 
-  biomeId: 1
-  spawnAttemptRate: 100
+  biomeId: 2
+  spawnAttemptRate: 70
   spawnChance: 50
   maxAmount: 5
-  curAmount: 0
+  curAmount: 5
 --- !u!114 &-4892611044641851135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,13 +237,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2309649512552693881}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0012943428, y: 0.026067067}
+  m_Offset: {x: -0.004810035, y: -0.053283036}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -254,7 +254,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.10268001, y: 0.03924007}
+  m_Size: {x: 0.62765896, y: 1.1433343}
   m_EdgeRadius: 0
 --- !u!114 &734449635609798602
 MonoBehaviour:
@@ -268,15 +268,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4ce877e5b3ac242b1dcd4c176b9d4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  degree: 0
   target: {fileID: 0}
-  projectile: {fileID: 2293905899123271289, guid: 5a9de05bfda4f5048a9e3bb8812cfc04,
+  projectile: {fileID: 2293905899123271289, guid: 33c779690b26ecf42a2402f225654bcd,
     type: 3}
   arm: {fileID: 3701897139647397363}
   speed: 0
   projSpeed: 1
   rb: {fileID: 2309649512552693861}
   ShootingPoint: {fileID: 8554668449834456404}
-  shootPeriod: 100
+  isCasting: 0
+  shootPeriod: 30
+  castingSpeed: 3
+  throwingSpeed: 10
 --- !u!1 &3701897139647397363
 GameObject:
   m_ObjectHideFlags: 0

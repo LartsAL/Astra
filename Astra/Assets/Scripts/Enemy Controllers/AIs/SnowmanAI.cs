@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SnowmanAI : MonoBehaviour
 {
-    int degree;
+    [SerializeField]  int degree;
     private int koef;
     [SerializeField] Transform target;
     public GameObject projectile;
@@ -15,15 +15,19 @@ public class SnowmanAI : MonoBehaviour
     private Vector3 StartScale;
     public GameObject ShootingPoint;
     private bool isShooting;
+    [SerializeField] private bool isCasting;
 
     public int shootPeriod;
     private int shootCooldown = 0;
     private GameObject player;
     private GameObject clock;
     private EnemyHPController EHpContr;
+    public int castingSpeed;
+    public int throwingSpeed;
 
     void Start()
     {
+        isCasting = true;
         EHpContr = GetComponent<EnemyHPController>();
         rb = this.GetComponent<Rigidbody2D>();
         StartScale = transform.localScale;
@@ -33,9 +37,9 @@ public class SnowmanAI : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        Rotate();
 
         if (!isShooting)
         {
@@ -45,6 +49,12 @@ public class SnowmanAI : MonoBehaviour
         {
             Shoot();
         }
+    }
+    // Update is called once per frame
+    void Update()
+    {
+
+        
 
         if (player.transform.position.x - transform.position.x < 0)
         {
@@ -60,20 +70,30 @@ public class SnowmanAI : MonoBehaviour
 
     private void Shoot()
     {
-        degree++;
-        if (degree<120)
+        if (isCasting)
         {
-            arm.transform.rotation = Quaternion.Euler(0, 0, -degree*koef);
+            if(degree < 120)
+            {
+                degree+=castingSpeed;
+            }
+            else
+            {
+                isCasting = false;
+                GameObject SummonedProjectile = Instantiate(projectile, ShootingPoint.transform.position, transform.rotation);
+                SummonedProjectile.GetComponent<ProjectileController>().direction = Vector3.MoveTowards(ShootingPoint.transform.position, target.transform.position, projSpeed / 10) - ShootingPoint.transform.position;
+            }
         }
         else
         {
-            Debug.LogError("Бебра!");
-            GameObject SummonedProjectile = Instantiate(projectile, ShootingPoint.transform.position, transform.rotation);
-            SummonedProjectile.GetComponent<PurpleProjectileController>().direction = Vector3.MoveTowards(ShootingPoint.transform.position, target.transform.position, projSpeed / 10) - ShootingPoint.transform.position;
-            SummonedProjectile.transform.SetParent(transform);
-            isShooting = false;
-            degree = 0;
-            arm.transform.rotation = Quaternion.Euler(0, 0, 0);
+            if (degree > 0)
+            {
+                degree-=throwingSpeed;
+            }
+            else
+            {
+                isCasting = true;
+                isShooting = false;
+            }
         }
     }
     private void Recharge()
@@ -87,6 +107,12 @@ public class SnowmanAI : MonoBehaviour
             shootCooldown = shootPeriod;
             isShooting = true;
         }
+    }
+
+    private void Rotate()
+    {
+        arm.transform.rotation = Quaternion.Euler(0, 0, -degree * koef);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
 }
