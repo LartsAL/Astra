@@ -51,7 +51,7 @@ public class EnemyHPController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Weapon" && isVulnerable && collision.gameObject.GetComponent<WeaponScript>().canDamage)
+        if (collision.gameObject.tag == "Weapon" && isVulnerable && collision.gameObject.GetComponent<WeaponScript>().canDamage && isAlive)
         {
             hp -= collision.gameObject.GetComponent<WeaponScript>().dmg;
             isVulnerable = false;
@@ -73,7 +73,7 @@ public class EnemyHPController : MonoBehaviour
 
     public void GetDamaged()
     {
-        if (hp>0) {
+        if (hp>0 && isAlive) {
             anim.SetTrigger("WeeWee");
         }
     }
