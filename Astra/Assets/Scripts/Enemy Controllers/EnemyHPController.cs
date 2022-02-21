@@ -16,10 +16,12 @@ public class EnemyHPController : MonoBehaviour
     public int vulCDfixed;
     private bool isAlive;
     private TicksCounter TCounter;
+    private DropController dc;
 
     // Start is called before the first frame update
     void Start()
     {
+        dc = GetComponent<DropController>();
         isAlive = true;
         anim = this.gameObject.GetComponent<Animator>();
         clock = GameObject.FindGameObjectWithTag("Clock");
@@ -80,6 +82,10 @@ public class EnemyHPController : MonoBehaviour
     IEnumerator Die()
     {
         yield return new WaitForSeconds(deathSeconds);
+        if (dc!=null)
+        {
+            dc.Drop();
+        }
         Destroy(this.gameObject);
     }
 }

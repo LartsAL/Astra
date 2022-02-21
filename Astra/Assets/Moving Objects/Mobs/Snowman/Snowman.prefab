@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 3858140675019549796}
   - component: {fileID: 1740480899400109838}
   - component: {fileID: 734449635609798602}
+  - component: {fileID: 6978979753841200064}
   m_Layer: 0
   m_Name: Snowman
   m_TagString: Enemy
@@ -281,6 +282,22 @@ MonoBehaviour:
   shootPeriod: 30
   castingSpeed: 3
   throwingSpeed: 10
+--- !u!114 &6978979753841200064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2309649512552693881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9b68d2e774fb7428935c7054ef2d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 4013902514229833631, guid: 379509db4e08d414d8122427175f82a4, type: 3}
+  chances:
+  - 20
 --- !u!1 &3701897139647397363
 GameObject:
   m_ObjectHideFlags: 0

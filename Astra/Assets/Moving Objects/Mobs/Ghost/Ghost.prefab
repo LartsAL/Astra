@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -4892611044641851135}
   - component: {fileID: 3941930650935144117}
   - component: {fileID: -7325257060607301317}
+  - component: {fileID: -1410507093902392992}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Enemy
@@ -200,6 +201,20 @@ MonoBehaviour:
   rb: {fileID: 0}
   ShootingPoint: {fileID: 8687788421129909478}
   shootPeriod: 150
+--- !u!114 &-1410507093902392992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2309649512552693881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9b68d2e774fb7428935c7054ef2d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
+  chances: []
 --- !u!1 &8687788421129909478
 GameObject:
   m_ObjectHideFlags: 0

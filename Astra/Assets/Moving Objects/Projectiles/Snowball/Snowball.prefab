@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1472a1db800ff94993a788d15225f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dmg: 1
   deathEffect: {fileID: 2293905899123271289, guid: 6a4ac01acd0a6f34fbde5b292b262881,
     type: 3}
   direction: {x: 0, y: 0, z: 0}

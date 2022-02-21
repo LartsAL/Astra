@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
+    public int dmg;
     public GameObject deathEffect;
     public Vector3 direction;
     public float speed;
@@ -45,7 +46,7 @@ public class ProjectileController : MonoBehaviour
         {
             if(!isFrostBased || collision.gameObject.GetComponent<CharacterControllerScript>().isFrozen)
             {
-                collision.gameObject.GetComponent<CharacterControllerScript>().hp--;
+                collision.gameObject.GetComponent<CharacterControllerScript>().hp-=dmg;
             }
             if (isFrozing && collision.gameObject.GetComponent<CharacterControllerScript>().frostDuration < frostForse)
             {
