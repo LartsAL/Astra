@@ -31,25 +31,22 @@ public class SpinScript : MonoBehaviour
     {
         angularSpeed = Mathf.Abs(lastAngle - transform.rotation.z) * 1000f;
         lastAngle = transform.rotation.z;
-        //if (ic.items[ic.chosenSlot-1].GetComponent<WeaponReferenceScript>() != null)
         if (ic.items[ic.chosenSlot - 1] != null)
         {
-            if (ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>() == null)
+            if (ic.items[ic.chosenSlot - 1].GetComponent<ItemController>() == null)
             {
                 Destroy(weapon);
                 weapon = null;
             }
-            if (weapon == null && ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>().weapon != null || weapon != null && ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>().weapon.GetComponent<WeaponScript>().type != weapon.GetComponent<WeaponScript>().type)
-            //if (weapon.GetComponent<WeaponScript>().type != ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>().weapon.GetComponent<WeaponScript>().type || (weapon == null && ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>().weapon != null))
+            if (weapon == null && ic.items[ic.chosenSlot - 1].GetComponent<ItemController>().weapon != null || weapon != null && ic.items[ic.chosenSlot - 1].GetComponent<ItemController>().weapon.GetComponent<WeaponScript>().type != weapon.GetComponent<WeaponScript>().type)
+        
             {
-                Debug.LogWarning("Mr.Cum");
                 Destroy(weapon);
                 weapon = null;
-                weapon = Instantiate(ic.items[ic.chosenSlot - 1].GetComponent<WeaponReferenceScript>().weapon);
+                weapon = Instantiate(ic.items[ic.chosenSlot - 1].GetComponent<ItemController>().weapon);
                 weapon.transform.SetParent(this.gameObject.transform);
                 weapon.transform.localPosition = new Vector3(weapon.GetComponent<WeaponScript>().handOffset, 0, 0); // Ранее (0.5f, 0, 0)
-                //this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-                //weapon.transform.localRotation = this.gameObject.transform.rotation;
+                
                 weapon.transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
         }

@@ -122,3 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 3611960543318429228, guid: abadfe940f9ced744b528f70e432b8c9, type: 3}
+  type: TheGreatSword
+  amount: 1
+  maxAmount: 1

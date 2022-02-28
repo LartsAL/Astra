@@ -71,7 +71,10 @@
     <Compile Include="Assets\Scripts\Enemy Controllers\EnemyInfo.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\Follower.cs" />
     <Compile Include="Assets\Scripts\GameStats.cs" />
+    <Compile Include="Assets\Scripts\ItemController.cs" />
     <Compile Include="Assets\Scripts\Player Controllers\CharacterControllerScript.cs" />
+    <Compile Include="Assets\Scripts\Player Controllers\Craft.cs" />
+    <Compile Include="Assets\Scripts\Player Controllers\CraftsController.cs" />
     <Compile Include="Assets\Scripts\Player Controllers\InventoryController.cs" />
     <Compile Include="Assets\Scripts\Player Controllers\SpinScript.cs" />
     <Compile Include="Assets\Scripts\Projectile Controllers\ProjectileController.cs" />
@@ -79,7 +82,6 @@
     <Compile Include="Assets\Scripts\Rotator.cs" />
     <Compile Include="Assets\Scripts\SortingLayer.cs" />
     <Compile Include="Assets\Scripts\TicksCounter.cs" />
-    <Compile Include="Assets\Scripts\WeaponReferenceScript.cs" />
     <Compile Include="Assets\Scripts\WeaponScript.cs" />
     <Compile Include="Assets\Scripts\World Controllers\BiomeGenerator.cs" />
     <Compile Include="Assets\Scripts\World Controllers\EnemySpawner.cs" />
