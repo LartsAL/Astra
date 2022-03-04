@@ -33,7 +33,7 @@ public class SpinScript : MonoBehaviour
         lastAngle = transform.rotation.z;
         if (ic.items[ic.chosenSlot - 1] != null)
         {
-            if (ic.items[ic.chosenSlot - 1].GetComponent<ItemController>() == null)
+            if (ic.items[ic.chosenSlot - 1].GetComponent<ItemController>().weapon == null)
             {
                 Destroy(weapon);
                 weapon = null;

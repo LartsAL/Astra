@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Craft : MonoBehaviour
 {
@@ -13,18 +14,28 @@ public class Craft : MonoBehaviour
     public bool isAvailable;
     public InventoryController IC;
     public GameObject[] items;
+    public Image[] slots;
+    public CraftsController CC;
+    private int UpdatesAfterCrafting;
 
     void Start()
     {
+        UpdatesAfterCrafting = 0; 
         //items = new GameObject[9];
         remainingMaterialAmounts = new int[materialAmounts.Length];
         remainingMaterialTypes = new string[materialTypes.Length];
         items = IC.items;
+        slots = IC.slots;
     }
 
     private void Update()
     {
         items = IC.items;
+        if (UpdatesAfterCrafting>0)
+        {
+            CC.UpdateCrafts();
+            UpdatesAfterCrafting -= 1;
+        }
         //CheckAvailablity();
     }
     public void CheckAvailablity()
@@ -64,9 +75,37 @@ public class Craft : MonoBehaviour
             remainingMaterialTypes[i] = materialTypes[i];
             remainingMaterialAmounts[i] = materialAmounts[i];
         }
-        /*for (int i = 0; i < 9; i++)
+    }
+    public void ExecuteCraft()
+    {
+        CopyArrays();
+        for (int i = 0; i < materialTypes.Length; i++)
         {
-            items[i] = IC.items[i].gameObject;
-        }*/
+            for (int j = 0; j < items.Length; j++)
+            {
+                if (items[j] == null)
+                {
+                    continue;
+                }
+                if (items[j].GetComponent<ItemController>().type == materialTypes[i])
+                {
+                    remainingMaterialAmounts[i] -= items[j].GetComponent<ItemController>().amount;
+                    Destroy(items[j]);
+                    slots[j].gameObject.transform.GetChild(0).GetComponent<Image>().sprite = null;
+
+                    // Костылиииии
+                    Color c = slots[j].gameObject.transform.GetChild(0).GetComponent<Image>().color;
+                    c.a = 0;
+                    slots[j].gameObject.transform.GetChild(0).GetComponent<Image>().color = c;
+                }
+                if (remainingMaterialAmounts[i] <= 0)
+                {
+                    remainingMaterialAmounts[i] = 0;
+                    break;
+                }
+            }
+        }
+        IC.CreateItem(result);
+        UpdatesAfterCrafting = 10;
     }
 }

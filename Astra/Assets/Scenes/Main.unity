@@ -1703,7 +1703,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1334913976}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999998
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1899,6 +1899,7 @@ GameObject:
   - component: {fileID: 908880911}
   - component: {fileID: 908880912}
   - component: {fileID: 908880913}
+  - component: {fileID: 908880914}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1942,6 +1943,7 @@ MonoBehaviour:
     type: 3}
   crafts:
   - {fileID: 908880913}
+  - {fileID: 908880914}
 --- !u!114 &908880913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1954,7 +1956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0242d989e305b314fb363e2a5e32edce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  result: {fileID: 0}
+  result: {fileID: 7487236865097411367, guid: 661f3f907a54a35478993f8e7479e2d9, type: 3}
   materialTypes:
   - StartSword
   - TheGreatSword
@@ -1962,7 +1964,8 @@ MonoBehaviour:
   remainingMaterialTypes:
   - 
   remainingMaterialAmounts: 00000000
-  description: 
+  description: "\u0422\u0440\u0430\u0432\u0430. \u0422\u0435\u0441\u0442\u043E\u0432\u044B\u0439
+    \u043A\u0440\u0430\u0444\u0442"
   isAvailable: 0
   IC: {fileID: 1799696519}
   items:
@@ -1973,6 +1976,111 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  slots: []
+  CC: {fileID: 908880912}
+--- !u!114 &908880914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908880910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0242d989e305b314fb363e2a5e32edce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  result: {fileID: 3571282045770942141, guid: a3e435395fb008a4fb1806ea27ab9c49, type: 3}
+  materialTypes:
+  - Shrub
+  materialAmounts: 01000000
+  remainingMaterialTypes:
+  - 
+  remainingMaterialAmounts: 00000000
+  description: "\u041C\u0435\u0447. \u0422\u0435\u0441\u0442\u043E\u0432\u044B\u0439
+    \u043A\u0440\u0430\u0444\u0442"
+  isAvailable: 0
+  IC: {fileID: 1799696519}
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  slots: []
+  CC: {fileID: 908880912}
 --- !u!1 &917497972 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2309649512552693881, guid: 54334d87a3da4644db7c8f30b330a576,
@@ -5282,6 +5390,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moonman
       objectReference: {fileID: 0}
+    - target: {fileID: 1112130787262039947, guid: aa254b85c829f1d49bc07a1ffeabcdd7,
+        type: 3}
+      propertyPath: CC
+      value: 
+      objectReference: {fileID: 908880912}
     - target: {fileID: 1112130787262039947, guid: aa254b85c829f1d49bc07a1ffeabcdd7,
         type: 3}
       propertyPath: lightSlot

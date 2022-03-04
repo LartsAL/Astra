@@ -13,6 +13,7 @@ public class InventoryController : MonoBehaviour
 
     private float pickupCooldown;
     private bool canPickup = true;
+    public CraftsController CC;
     void Start()
     {
         items = new GameObject[9];
@@ -50,6 +51,7 @@ public class InventoryController : MonoBehaviour
 
     public void PickupItems()
     {
+        
         if (Input.GetKeyDown(KeyCode.E) && canPickup)
         {
             canPickup = false;
@@ -78,9 +80,8 @@ public class InventoryController : MonoBehaviour
 
                 nearestObject.transform.position = slots[chosenSlot - 1].transform.position;
                 nearestObject.transform.SetParent(slots[chosenSlot - 1].transform);
-                //nearestObject.GetComponent<SpriteRenderer>().sortingOrder = 9;
 
-                slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().sprite = nearestObject.GetComponent<SpriteRenderer>().sprite; // Оно не работает (с чего мы взяли, что не работает?)
+                slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().sprite = nearestObject.GetComponent<SpriteRenderer>().sprite;
 
                 // Што это за костыли
                 Color c = slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().color;
@@ -91,6 +92,7 @@ public class InventoryController : MonoBehaviour
             }
             nearItems.Clear();
             Invoke("PickupTimer", pickupCooldown);
+            CC.UpdateCrafts();
         }
     }
     
@@ -110,6 +112,12 @@ public class InventoryController : MonoBehaviour
         item.transform.parent = null;
         item.transform.position = transform.position;
         items[chosenSlot - 1] = null;
+        CC.UpdateCrafts();
+    }
+
+    public void CreateItem(GameObject item)
+    {
+        Instantiate(item, transform.position, Quaternion.Euler(0, 0, 0));
     }
 
     private void PickupTimer()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CraftsController : MonoBehaviour
 {
@@ -35,13 +36,20 @@ public class CraftsController : MonoBehaviour
             crafts[x].CheckAvailablity();
             if (crafts[x].isAvailable)
             {
-                GameObject cv = Instantiate(CraftVisualisation);
-                cv.transform.SetParent(this.gameObject.transform);
-                cv.GetComponent<RectTransform>().anchoredPosition = CraftVisualisation.GetComponent<RectTransform>().anchoredPosition;
-                cv.GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, i);
+                CreateVisualisation(crafts[x]);
                 i += 70;
                 
             }
         }
+    }
+    void CreateVisualisation(Craft cr)
+    {
+        GameObject cv = Instantiate(CraftVisualisation);
+        cv.transform.SetParent(this.gameObject.transform);
+        cv.GetComponent<RectTransform>().anchoredPosition = CraftVisualisation.GetComponent<RectTransform>().anchoredPosition;
+        cv.GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, i);
+        cv.GetComponent<CraftVisualisationController>().Image.GetComponent<Image>().sprite = cr.result.GetComponent<SpriteRenderer>().sprite;
+        cv.GetComponent<CraftVisualisationController>().CraftDescription.GetComponent<Text>().text = cr.description;
+        cv.GetComponent<CraftVisualisationController>().craft = cr;
     }
 }
