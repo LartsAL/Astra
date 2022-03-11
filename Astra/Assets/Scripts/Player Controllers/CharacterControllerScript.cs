@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class CharacterControllerScript : MonoBehaviour
 {
+    public GameObject CraftsList;
+    private bool areCraftsOpened;
+
     public bool isFrozen;
     public float frostDuration;
     private Color startColor;
@@ -30,6 +33,7 @@ public class CharacterControllerScript : MonoBehaviour
     bool noColliderHackEnabled = false;
     void Start()
     {
+        areCraftsOpened = true;
         startColor = GetComponent<SpriteRenderer>().color;
         normalSpeed = speed;
         startScale = transform.localScale;
@@ -46,6 +50,20 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown("i"))
+        {
+            if (areCraftsOpened)
+            {
+                CraftsList.SetActive(false);
+                areCraftsOpened = false;
+            }
+            else
+            {
+                CraftsList.SetActive(true);
+                areCraftsOpened = true;
+            }
+        }
+
         if (Input.GetKeyDown("v"))
         {
             isFrozen = true;

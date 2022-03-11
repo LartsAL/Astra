@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CraftsController : MonoBehaviour
 {
+
     float i;
     public GameObject CraftVisualisation;
     private RectTransform rt;
@@ -19,10 +20,6 @@ public class CraftsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("i"))
-        {
-            UpdateCrafts();
-        }
     }
     public void UpdateCrafts()
     {
@@ -47,6 +44,7 @@ public class CraftsController : MonoBehaviour
         GameObject cv = Instantiate(CraftVisualisation);
         cv.transform.SetParent(this.gameObject.transform);
         cv.GetComponent<RectTransform>().anchoredPosition = CraftVisualisation.GetComponent<RectTransform>().anchoredPosition;
+        cv.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);       
         cv.GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, i);
         cv.GetComponent<CraftVisualisationController>().Image.GetComponent<Image>().sprite = cr.result.GetComponent<SpriteRenderer>().sprite;
         cv.GetComponent<CraftVisualisationController>().CraftDescription.GetComponent<Text>().text = cr.description;
