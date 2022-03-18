@@ -9,6 +9,7 @@ public class CraftsController : MonoBehaviour
     float i;
     public GameObject CraftVisualisation;
     private RectTransform rt;
+    public InventoryController IC;
     public Craft[] crafts;
     // Start is called before the first frame update
     void Start()

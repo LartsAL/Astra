@@ -30,11 +30,16 @@ public class Craft : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown("z"))
+        {
+            CC.UpdateCrafts();
+        }
         items = IC.items;
         if (UpdatesAfterCrafting>0)
         {
             CC.UpdateCrafts();
             UpdatesAfterCrafting -= 1;
+            IC.UpdateAmountText();
         }
         //CheckAvailablity();
     }
@@ -89,14 +94,23 @@ public class Craft : MonoBehaviour
                 }
                 if (items[j].GetComponent<ItemController>().type == materialTypes[i])
                 {
-                    remainingMaterialAmounts[i] -= items[j].GetComponent<ItemController>().amount;
-                    Destroy(items[j]);
-                    slots[j].gameObject.transform.GetChild(0).GetComponent<Image>().sprite = null;
+                    if(remainingMaterialAmounts[i] < items[j].GetComponent<ItemController>().amount)
+                    {
+                        items[j].GetComponent<ItemController>().amount -= remainingMaterialAmounts[i];
+                        remainingMaterialAmounts[i] = 0;
+                    }
+                    else
+                    {
+                        remainingMaterialAmounts[i] -= items[j].GetComponent<ItemController>().amount;
+                        Destroy(items[j]);
+                        slots[j].gameObject.transform.GetChild(0).GetComponent<Image>().sprite = null;
 
-                    // Костылиииии
-                    Color c = slots[j].gameObject.transform.GetChild(0).GetComponent<Image>().color;
-                    c.a = 0;
-                    slots[j].gameObject.transform.GetChild(0).GetComponent<Image>().color = c;
+                        // Костылиииии
+                        Color c = slots[j].gameObject.transform.GetChild(0).GetComponent<Image>().color;
+                        c.a = 0;
+                        slots[j].gameObject.transform.GetChild(0).GetComponent<Image>().color = c;
+                    }
+                    
                 }
                 if (remainingMaterialAmounts[i] <= 0)
                 {
@@ -106,6 +120,8 @@ public class Craft : MonoBehaviour
             }
         }
         IC.CreateItem(result);
+        CC.UpdateCrafts();
+        CC.UpdateCrafts();
         UpdatesAfterCrafting = 10;
     }
 }

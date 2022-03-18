@@ -8,6 +8,7 @@ public class InventoryController : MonoBehaviour
     List<GameObject> nearItems = new List<GameObject>();
     public Image[] slots;
     public GameObject[] items;
+    public GameObject[] amountText;
     public Image lightSlot;
     public int chosenSlot = 1;
 
@@ -28,7 +29,25 @@ public class InventoryController : MonoBehaviour
         {
             DropItem(items[chosenSlot - 1]);
         }
+        if (items[chosenSlot - 1] != null && Input.GetKeyDown("r"))
+        {
+            DropOneThing(items[chosenSlot - 1]);
+        }
+    }
 
+    public void UpdateAmountText()
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            if (items[i].GetComponent<ItemController>().amount > 1)
+            {
+                amountText[i].GetComponent<Text>().text = items[i].GetComponent<ItemController>().amount.ToString();
+            }
+            else
+            {
+                amountText[i].GetComponent<Text>().text = "";
+            }
+        }
     }
     private void ChooseSlot() {
         if (Input.GetKey("1") || Input.GetKey("2") || Input.GetKey("3") || Input.GetKey("4") || Input.GetKey("5") || Input.GetKey("6") || Input.GetKey("7") || Input.GetKey("8") || Input.GetKey("9"))
@@ -74,25 +93,37 @@ public class InventoryController : MonoBehaviour
             {
                 if (items[chosenSlot - 1] != null)
                 {
-                    DropItem(items[chosenSlot - 1]);
+                    if (items[chosenSlot - 1].GetComponent<ItemController>().type == nearestObject.GetComponent<ItemController>().type)
+                    {
+                        items[chosenSlot - 1].GetComponent<ItemController>().amount += nearestObject.GetComponent<ItemController>().amount;
+                        Destroy(nearestObject);
+                    }
                 }
-                items[chosenSlot - 1] = nearestObject;
+                else
+                {
+                    if (items[chosenSlot - 1] != null)
+                    {
+                        DropItem(items[chosenSlot - 1]);
+                    }
+                    items[chosenSlot - 1] = nearestObject;
 
-                nearestObject.transform.position = slots[chosenSlot - 1].transform.position;
-                nearestObject.transform.SetParent(slots[chosenSlot - 1].transform);
+                    nearestObject.transform.position = slots[chosenSlot - 1].transform.position;
+                    nearestObject.transform.SetParent(slots[chosenSlot - 1].transform);
 
-                slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().sprite = nearestObject.GetComponent<SpriteRenderer>().sprite;
+                    slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().sprite = nearestObject.GetComponent<SpriteRenderer>().sprite;
 
-                // Што это за костыли
-                Color c = slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().color;
-                c.a = 1;
-                slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().color = c;
+                    // Што это за костыли
+                    Color c = slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().color;
+                    c.a = 1;
+                    slots[chosenSlot - 1].gameObject.transform.GetChild(0).GetComponent<Image>().color = c;
 
-                nearestObject.GetComponent<SpriteRenderer>().enabled = false;
+                    nearestObject.GetComponent<SpriteRenderer>().enabled = false;
+                }
             }
-            nearItems.Clear();
-            Invoke("PickupTimer", pickupCooldown);
-            CC.UpdateCrafts();
+                nearItems.Clear();
+                Invoke("PickupTimer", pickupCooldown);
+                CC.UpdateCrafts();
+                UpdateAmountText();
         }
     }
     
@@ -113,6 +144,25 @@ public class InventoryController : MonoBehaviour
         item.transform.position = transform.position;
         items[chosenSlot - 1] = null;
         CC.UpdateCrafts();
+        UpdateAmountText();
+    }
+
+    private void DropOneThing(GameObject item)
+    {
+        if (item.GetComponent<ItemController>().amount > 1)
+        {
+            GameObject OneThing = Instantiate(item, transform.position, Quaternion.Euler(0, 0, 0));
+            OneThing.GetComponent<ItemController>().amount = 1;
+            OneThing.GetComponent<SpriteRenderer>().enabled = true;
+            OneThing.transform.localScale = OneThing.transform.localScale * 1.6f;
+            item.GetComponent<ItemController>().amount -= 1;
+        }
+        else
+        {
+            DropItem(item);
+        }
+        CC.UpdateCrafts();
+        UpdateAmountText();
     }
 
     public void CreateItem(GameObject item)
