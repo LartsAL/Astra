@@ -39,6 +39,11 @@ public class InventoryController : MonoBehaviour
     {
         for (int i = 0; i < 9; i++)
         {
+            if(items[i] == null)
+            {
+                amountText[i].GetComponent<Text>().text = "";
+                continue;
+            }
             if (items[i].GetComponent<ItemController>().amount > 1)
             {
                 amountText[i].GetComponent<Text>().text = items[i].GetComponent<ItemController>().amount.ToString();

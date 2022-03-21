@@ -50,6 +50,10 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Update()
     {
+        if (hp == 0)
+        {
+            Die();
+        }
         if (Input.GetKeyDown("i"))
         {
             if (areCraftsOpened)
@@ -264,5 +268,10 @@ public class CharacterControllerScript : MonoBehaviour
                 hearts[i].GetComponent<Image>().sprite = emptyHeart;
             }
         }
+    }
+
+    void Die()
+    {
+        GetComponent<DeathScreenCaller>().GameOver();
     }
 }

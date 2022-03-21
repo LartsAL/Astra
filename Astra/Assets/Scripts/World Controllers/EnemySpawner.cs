@@ -8,7 +8,6 @@ public class EnemySpawner : MonoBehaviour
 {
     //private List<GameObject> aliveEnemies = new List<GameObject>(); // Список живых врагов, влияет на блокировку спавна новых врагов
     public List<int> priorities = new List<int>(); // Надо, без этого они толкаются
-    public GameObject TestEnemy;
     public GameObject[] Enemies;
     private int[,] objectMatrix;
     private int[,] tileMatrix;
@@ -41,10 +40,6 @@ public class EnemySpawner : MonoBehaviour
         if (tickNumberChange>0)
         {
             TryToSpawnAnyone();
-        }
-        if (Input.GetKeyDown("o"))
-        {
-            Spawn(TestEnemy, ChooseSpawnpoint());
         }
         tileBiomeId = tileMatrix[Mathf.RoundToInt(player.transform.position.x / 1.6f), Mathf.RoundToInt(player.transform.position.y / 1.6f)];
         

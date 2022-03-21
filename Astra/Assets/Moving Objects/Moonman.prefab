@@ -122,10 +122,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 132167ea5173c344983d41ab9120d420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CraftsList: {fileID: 0}
   isFrozen: 0
   frostDuration: 0
   hearts: []
-  maxHp: 0
+  maxHp: 6
   hp: 0
   emptyHeart: {fileID: 21300000, guid: 8d11b075f09922e4d937eff34e88e5ca, type: 3}
   halfHeart: {fileID: 21300000, guid: c62844532af34824fbd293c173310d5a, type: 3}
@@ -201,8 +202,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   items: []
+  amountText: []
   lightSlot: {fileID: 0}
   chosenSlot: 1
+  CC: {fileID: 0}
 --- !u!58 &1112130787262039946
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -232,8 +235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priorities: 
-  TestEnemy: {fileID: 2309649512552693881, guid: 54334d87a3da4644db7c8f30b330a576,
-    type: 3}
   Enemies:
   - {fileID: 2309649512552693881, guid: 54334d87a3da4644db7c8f30b330a576, type: 3}
   - {fileID: 2309649512552693881, guid: 253f616fea286ca419e223bad141969c, type: 3}

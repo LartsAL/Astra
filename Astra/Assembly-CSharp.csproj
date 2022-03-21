@@ -62,7 +62,9 @@
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathSceneTool.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathSpawner.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\RoadMeshCreator.cs" />
+    <Compile Include="Assets\SceneTest.cs" />
     <Compile Include="Assets\Scripts\CraftVisualisationController.cs" />
+    <Compile Include="Assets\Scripts\DeathScreenSceneRedirector.cs" />
     <Compile Include="Assets\Scripts\Effects Controllers\PurpleMagicBlowController.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\AIs\GhostAI.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\AIs\SlimeAI.cs" />
@@ -83,8 +85,10 @@
     <Compile Include="Assets\Scripts\Rotator.cs" />
     <Compile Include="Assets\Scripts\SortingLayer.cs" />
     <Compile Include="Assets\Scripts\TicksCounter.cs" />
+    <Compile Include="Assets\Scripts\TravelingDecorationController.cs" />
     <Compile Include="Assets\Scripts\WeaponScript.cs" />
     <Compile Include="Assets\Scripts\World Controllers\BiomeGenerator.cs" />
+    <Compile Include="Assets\Scripts\World Controllers\DeathScreenCaller.cs" />
     <Compile Include="Assets\Scripts\World Controllers\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\World Controllers\MapGeneratorScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />

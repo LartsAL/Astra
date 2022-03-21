@@ -152,7 +152,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0.3
+  m_StoppingDistance: 0.1
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 0
   m_AutoRepath: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
   spawnAttemptRate: 100
   spawnChance: 50
   maxAmount: 5
-  curAmount: 0
+  curAmount: 4
 --- !u!114 &-4892611044641851135
 MonoBehaviour:
   m_ObjectHideFlags: 0
