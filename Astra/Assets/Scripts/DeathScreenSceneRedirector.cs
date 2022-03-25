@@ -13,4 +13,8 @@ public class DeathScreenSceneRedirector : MonoBehaviour
     {
         Application.Quit();
     }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

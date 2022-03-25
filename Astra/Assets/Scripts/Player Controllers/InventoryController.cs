@@ -104,10 +104,11 @@ public class InventoryController : MonoBehaviour
                         Destroy(nearestObject);
                     }
                 }
-                else
+                if(items[chosenSlot - 1] == null || (items[chosenSlot - 1].GetComponent<ItemController>().type != nearestObject.GetComponent<ItemController>().type))
                 {
                     if (items[chosenSlot - 1] != null)
                     {
+                        Debug.LogWarning("ebug");
                         DropItem(items[chosenSlot - 1]);
                     }
                     items[chosenSlot - 1] = nearestObject;
@@ -159,7 +160,9 @@ public class InventoryController : MonoBehaviour
             GameObject OneThing = Instantiate(item, transform.position, Quaternion.Euler(0, 0, 0));
             OneThing.GetComponent<ItemController>().amount = 1;
             OneThing.GetComponent<SpriteRenderer>().enabled = true;
-            OneThing.transform.localScale = OneThing.transform.localScale * 1.6f;
+            Vector3 lc = OneThing.GetComponent<ItemController>().localScale;
+            OneThing.transform.localScale = new Vector3(lc.x/lc.z, lc.y/lc.z, 1);
+            //OneThing.transform.localScale = new Vector3(1, 1, 1);
             item.GetComponent<ItemController>().amount -= 1;
         }
         else

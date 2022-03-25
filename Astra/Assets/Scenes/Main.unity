@@ -891,7 +891,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 931447405}
   m_HandleRect: {fileID: 931447404}
   m_Direction: 2
-  m_Value: 1.0000002
+  m_Value: 1
   m_Size: 0.766
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1169,7 +1169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &548163374 stripped
@@ -1899,6 +1899,7 @@ MonoBehaviour:
   amount: 0
   maxAmount: 0
   text: {fileID: 0}
+  localScale: {x: 0, y: 0, z: 0}
 --- !u!61 &843716340
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2268,6 +2269,7 @@ GameObject:
   - component: {fileID: 908880912}
   - component: {fileID: 908880913}
   - component: {fileID: 908880914}
+  - component: {fileID: 908880915}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -2312,6 +2314,7 @@ MonoBehaviour:
   crafts:
   - {fileID: 908880913}
   - {fileID: 908880914}
+  - {fileID: 908880915}
 --- !u!114 &908880913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2382,6 +2385,74 @@ MonoBehaviour:
   slots: []
   CC: {fileID: 908880912}
 --- !u!114 &908880914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908880910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0242d989e305b314fb363e2a5e32edce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  result: {fileID: 7889885996822160922, guid: 5e448baae5fdd6a42b473ab9bcd6fae5, type: 3}
+  materialTypes:
+  - Shrub
+  materialAmounts: 01000000
+  remainingMaterialTypes:
+  - 
+  remainingMaterialAmounts: 00000000
+  description: "\u041C\u0435\u0447. \u0422\u0435\u0441\u0442\u043E\u0432\u044B\u0439
+    \u043A\u0440\u0430\u0444\u0442"
+  isAvailable: 0
+  IC: {fileID: 1799696519}
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  slots: []
+  CC: {fileID: 908880912}
+--- !u!114 &908880915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4505,7 +4576,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1575767847}
-  - component: {fileID: 1575767846}
   - component: {fileID: 1575767848}
   m_Layer: 0
   m_Name: '*Biome Generator'
@@ -4513,30 +4583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1575767846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575767845}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7931ebd548dd31b48ba6903ef7623b15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  matrixSize: 300
-  tiles:
-  - {fileID: 3268118783088357517, guid: 51b9da79a5917ef4c82edc7f13d15a41, type: 3}
-  - {fileID: 5280929126875140748, guid: a306d7b545bca7c44a2462396fdbc66d, type: 3}
-  - {fileID: 8544824526304969325, guid: 47a8df43f98276941bdaf604f468d6a9, type: 3}
-  - {fileID: 3268118783088357517, guid: 51b9da79a5917ef4c82edc7f13d15a41, type: 3}
-  - {fileID: 8579084526953106824, guid: 574d3d08dfc6cbe418e3f69cd7f2a618, type: 3}
-  - {fileID: 3268118783088357517, guid: 51b9da79a5917ef4c82edc7f13d15a41, type: 3}
-  - {fileID: 3722341162210275516, guid: 91de08d1611cc47478f0502d55f07d01, type: 3}
-  - {fileID: 6103050163912180291, guid: d803637bdc299094daa3212f8374bf0c, type: 3}
-  - {fileID: 5373287234616904725, guid: 1ec2a082f9a55284d99a86901a0a9da9, type: 3}
+  m_IsActive: 0
 --- !u!4 &1575767847
 Transform:
   m_ObjectHideFlags: 0
@@ -5341,7 +5388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1851745964

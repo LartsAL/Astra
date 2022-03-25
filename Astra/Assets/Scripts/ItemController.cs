@@ -10,9 +10,16 @@ public class ItemController : MonoBehaviour
     public int amount;
     public int maxAmount;
     public Text text;
+    public Vector3 localScale;
 
     private void Update()
     {
+        localScale = transform.localScale;
+        if (Input.GetKeyDown("t"))
+        {
+            Debug.LogWarning(type + " " + transform.localScale);
+        }
         text.text = amount.ToString();
+        
     }
 }

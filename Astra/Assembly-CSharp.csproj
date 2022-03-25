@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MainMenuBackgroundController.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\GeneratePathExample.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathFollower.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathPlacer.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Assets\Scripts\Enemy Controllers\Follower.cs" />
     <Compile Include="Assets\Scripts\GameStats.cs" />
     <Compile Include="Assets\Scripts\ItemController.cs" />
+    <Compile Include="Assets\Scripts\MainMenuSceneRedirector.cs" />
     <Compile Include="Assets\Scripts\Player Controllers\CharacterControllerScript.cs" />
     <Compile Include="Assets\Scripts\Player Controllers\Craft.cs" />
     <Compile Include="Assets\Scripts\Player Controllers\CraftsController.cs" />
