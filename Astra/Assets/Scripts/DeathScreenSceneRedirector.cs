@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DeathScreenSceneRedirector : MonoBehaviour
 {
+    public GameSaver GS;
     public void TryAgain()
     {
         SceneManager.LoadScene("Main");

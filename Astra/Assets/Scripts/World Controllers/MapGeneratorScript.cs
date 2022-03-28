@@ -7,7 +7,7 @@ using System.Linq;
 using UnityEngine.AI;
 public class MapGeneratorScript : MonoBehaviour
 {
-
+	public GameSaver GS;
 	public Transform NavMesh;
 	public GameObject[] grasstiles = new GameObject[10];
 	public GameObject[] objects;
@@ -17,30 +17,27 @@ public class MapGeneratorScript : MonoBehaviour
 
 	private NavMeshSurface2d surface;
 
-	private EnemySpawner ES; // !
+	private EnemySpawner ES;
 
 	void Start()
     {
 		ES = GameObject.FindGameObjectWithTag("Player").GetComponent<EnemySpawner>(); // !
 
 		surface = GameObject.Find("NavMesh 2D").GetComponent<NavMeshSurface2d>();
-
-		tileMatrix = GeneratetileMatrix(size);
-
-		objectMatrix = new int[size, size];
-		for (int i = 0; i < size; i++)
+		SaveData data = GS.LoadGame();
+		if (data.tileMatrix == null)
 		{
-			for (int j = 0; j < size; j++)
-			{
-				objectMatrix[i, j] = 0;
-			}
+			GenerateNewWorld();
+			
 		}
-		GenerateMultiplyObjects(tileMatrix, objectMatrix, 1, 10, 2, 15, 1, 0);
-		GenerateMultiplyObjects(tileMatrix, objectMatrix, 10, 3, 10, 15, 1, 0);
-		GenerateMultiplyObjects(tileMatrix, objectMatrix, 25, 10, 60, 15, 1, 3);
-		GenerateMultiplyObjects(tileMatrix, objectMatrix, 1, 100, 7, 15, 0, 3);
-		GenerateMultiplyObjects(tileMatrix, objectMatrix, 26, 10, 100, 15, 0, 3);
-		GenerateSingleObject(tileMatrix, objectMatrix, 64, 1);
+		else
+		{
+			tileMatrix = data.tileMatrix;
+			objectMatrix = data.objectMatrix;
+			
+		}
+		SaveTheWorld();
+
 		for (int i = 0; i < size; i++)
 		{
 			for (int j = 0; j < size; j++)
@@ -68,16 +65,32 @@ public class MapGeneratorScript : MonoBehaviour
 
 		surface.BuildNavMesh();
 
-		ES.GetData(); // !
+		ES.GetData();
+	}
+	void SaveTheWorld()
+	{
+		GS.currentData.tileMatrix = tileMatrix;
+		GS.currentData.objectMatrix = objectMatrix;
+	}
+	public void GenerateNewWorld()
+	{
+		tileMatrix = GeneratetileMatrix(size);
+		objectMatrix = new int[size, size];
+		for (int i = 0; i < size; i++)
+		{
+			for (int j = 0; j < size; j++)
+			{
+				objectMatrix[i, j] = 0;
+			}
+		}
+		GenerateMultiplyObjects(tileMatrix, objectMatrix, 1, 10, 2, 15, 1, 0);
+		GenerateMultiplyObjects(tileMatrix, objectMatrix, 10, 3, 10, 15, 1, 0);
+		GenerateMultiplyObjects(tileMatrix, objectMatrix, 25, 10, 60, 15, 1, 3);
+		GenerateMultiplyObjects(tileMatrix, objectMatrix, 1, 100, 7, 15, 0, 3);
+		GenerateMultiplyObjects(tileMatrix, objectMatrix, 26, 10, 100, 15, 0, 3);
+		GenerateSingleObject(tileMatrix, objectMatrix, 64, 1);
 	}
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Z))
-		{
-			surface.BuildNavMesh();
-		}
-    }
 
 	public void GenerateSingleObject(int [,] tileMatrix, int[,] objectMatrix, int id, int biomeid)
 	{

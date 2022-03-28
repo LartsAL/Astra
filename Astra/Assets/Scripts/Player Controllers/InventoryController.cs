@@ -101,7 +101,16 @@ public class InventoryController : MonoBehaviour
                     if (items[chosenSlot - 1].GetComponent<ItemController>().type == nearestObject.GetComponent<ItemController>().type)
                     {
                         items[chosenSlot - 1].GetComponent<ItemController>().amount += nearestObject.GetComponent<ItemController>().amount;
-                        Destroy(nearestObject);
+                        if(items[chosenSlot - 1].GetComponent<ItemController>().amount> items[chosenSlot - 1].GetComponent<ItemController>().maxAmount)
+                        {
+                            nearestObject.GetComponent<ItemController>().amount = items[chosenSlot - 1].GetComponent<ItemController>().amount - items[chosenSlot - 1].GetComponent<ItemController>().maxAmount;
+                            items[chosenSlot - 1].GetComponent<ItemController>().amount = items[chosenSlot - 1].GetComponent<ItemController>().maxAmount;
+
+                        }
+                        else
+                        {
+                            Destroy(nearestObject);
+                        }
                     }
                 }
                 if(items[chosenSlot - 1] == null || (items[chosenSlot - 1].GetComponent<ItemController>().type != nearestObject.GetComponent<ItemController>().type))
@@ -162,7 +171,6 @@ public class InventoryController : MonoBehaviour
             OneThing.GetComponent<SpriteRenderer>().enabled = true;
             Vector3 lc = OneThing.GetComponent<ItemController>().localScale;
             OneThing.transform.localScale = new Vector3(lc.x/lc.z, lc.y/lc.z, 1);
-            //OneThing.transform.localScale = new Vector3(1, 1, 1);
             item.GetComponent<ItemController>().amount -= 1;
         }
         else

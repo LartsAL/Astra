@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuSceneRedirector : MonoBehaviour
 {
+    public GameSaver GS;
     public void Play()
     {
         SceneManager.LoadScene("Main");

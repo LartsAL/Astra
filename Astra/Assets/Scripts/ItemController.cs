@@ -15,10 +15,6 @@ public class ItemController : MonoBehaviour
     private void Update()
     {
         localScale = transform.localScale;
-        if (Input.GetKeyDown("t"))
-        {
-            Debug.LogWarning(type + " " + transform.localScale);
-        }
         text.text = amount.ToString();
         
     }

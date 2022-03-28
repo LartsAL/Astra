@@ -50,7 +50,6 @@ public class SnowmanAI : MonoBehaviour
             Shoot();
         }
     }
-    // Update is called once per frame
     void Update()
     {
 

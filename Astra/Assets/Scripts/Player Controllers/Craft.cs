@@ -41,7 +41,6 @@ public class Craft : MonoBehaviour
             UpdatesAfterCrafting -= 1;
             IC.UpdateAmountText();
         }
-        //CheckAvailablity();
     }
     public void CheckAvailablity()
     {

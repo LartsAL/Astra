@@ -934,6 +934,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396969405}
   m_CullTransparentMesh: 0
+--- !u!1 &406476960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 406476962}
+  - component: {fileID: 406476961}
+  m_Layer: 0
+  m_Name: GameSaver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &406476961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406476960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ebccb6eb1b88954eaa464b1ce0fb397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &406476962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406476960}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.899515, y: 2.2329297, z: -0.8367675}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410403804
 GameObject:
   m_ObjectHideFlags: 0
@@ -4583,7 +4626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1575767847
 Transform:
   m_ObjectHideFlags: 0
@@ -4610,6 +4653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92cd0b63e6667a04f99ffa58c25b0242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GS: {fileID: 406476961}
   NavMesh: {fileID: 1890404273}
   grasstiles:
   - {fileID: 1693400844172757334, guid: f59cf5b13fa3a2847893cd26c1b9bf1a, type: 3}
@@ -4874,6 +4918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92744a3f80e87024d98b79ffdcb987b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GS: {fileID: 406476961}
 --- !u!1 &1668569855
 GameObject:
   m_ObjectHideFlags: 0
