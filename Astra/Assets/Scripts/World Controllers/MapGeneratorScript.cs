@@ -7,6 +7,7 @@ using System.Linq;
 using UnityEngine.AI;
 public class MapGeneratorScript : MonoBehaviour
 {
+	public WorldNumberContainer WNC;
 	public GameSaver GS;
 	public Transform NavMesh;
 	public GameObject[] grasstiles = new GameObject[10];
@@ -23,7 +24,7 @@ public class MapGeneratorScript : MonoBehaviour
 	void Start()
     {
 		ES = GameObject.FindGameObjectWithTag("Player").GetComponent<EnemySpawner>(); // !
-
+		worldNumber = WNC.worldNumber;
 		surface = GameObject.Find("NavMesh 2D").GetComponent<NavMeshSurface2d>();
 		SaveData data = GS.LoadGame();
 		GS.currentData = data;

@@ -76,7 +76,7 @@
     <Compile Include="Assets\Scripts\GameStats.cs" />
     <Compile Include="Assets\Scripts\ItemController.cs" />
     <Compile Include="Assets\Scripts\MainMenuBackgroundController.cs" />
-    <Compile Include="Assets\Scripts\MainMenuSceneRedirector.cs" />
+    <Compile Include="Assets\Scripts\MainMenuButtonManager.cs" />
     <Compile Include="Assets\Scripts\Player Controllers\CharacterControllerScript.cs" />
     <Compile Include="Assets\Scripts\Player Controllers\Craft.cs" />
     <Compile Include="Assets\Scripts\Player Controllers\CraftsController.cs" />
@@ -127,6 +127,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+    <Compile Include="Assets\WorldNumberContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

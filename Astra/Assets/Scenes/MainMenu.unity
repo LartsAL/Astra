@@ -1598,6 +1598,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorldVisualisation (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5609146035157213858, guid: c92523a511c4190409972596c35a2fbc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609146035157213858, guid: c92523a511c4190409972596c35a2fbc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1989412184}
+    - target: {fileID: 5609146035157213858, guid: c92523a511c4190409972596c35a2fbc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartInAWorld
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609146035157213858, guid: c92523a511c4190409972596c35a2fbc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c92523a511c4190409972596c35a2fbc, type: 3}
 --- !u!1 &215948134
@@ -4451,7 +4471,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 696963322}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1989412184}
+        m_MethodName: Back
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &696963322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9591,7 +9622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1510169845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9604,6 +9635,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ebccb6eb1b88954eaa464b1ce0fb397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentData:
+    worlds: []
 --- !u!4 &1510169846
 Transform:
   m_ObjectHideFlags: 0
@@ -10995,6 +11028,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WorldVisualisation (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609146035157213858, guid: c92523a511c4190409972596c35a2fbc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609146035157213858, guid: c92523a511c4190409972596c35a2fbc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1989412184}
+    - target: {fileID: 5609146035157213858, guid: c92523a511c4190409972596c35a2fbc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartInAWorld
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609146035157213858, guid: c92523a511c4190409972596c35a2fbc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c92523a511c4190409972596c35a2fbc, type: 3}
@@ -13015,7 +13068,7 @@ GameObject:
   - component: {fileID: 1989412185}
   - component: {fileID: 1989412184}
   m_Layer: 0
-  m_Name: SceneRedirector
+  m_Name: ButtonManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13033,7 +13086,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf8bf92958414f4288bfb7d4350faff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  worldSlots: {fileID: 624076537}
   GS: {fileID: 0}
+  WNC: {fileID: 8503117308734349395, guid: 9e6f4b6850eb66446beec4a7765d2030, type: 3}
 --- !u!4 &1989412185
 Transform:
   m_ObjectHideFlags: 0
@@ -13904,6 +13959,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WorldVisualisation
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609146035157213858, guid: c92523a511c4190409972596c35a2fbc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609146035157213858, guid: c92523a511c4190409972596c35a2fbc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609146035157213858, guid: c92523a511c4190409972596c35a2fbc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1989412184}
+    - target: {fileID: 5609146035157213858, guid: c92523a511c4190409972596c35a2fbc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartInAWorld
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609146035157213858, guid: c92523a511c4190409972596c35a2fbc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c92523a511c4190409972596c35a2fbc, type: 3}

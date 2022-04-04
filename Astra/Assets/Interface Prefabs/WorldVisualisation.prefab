@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5609146034802196762}
   - component: {fileID: 5609146034802196763}
   m_Layer: 5
-  m_Name: CraftDescription
+  m_Name: WorldDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 5609146035157213857}
   - component: {fileID: 5609146035157213858}
   m_Layer: 5
-  m_Name: CraftButton
+  m_Name: StartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
