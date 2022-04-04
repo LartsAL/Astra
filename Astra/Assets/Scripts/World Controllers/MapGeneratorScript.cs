@@ -14,6 +14,7 @@ public class MapGeneratorScript : MonoBehaviour
 	public int size;
 	[HideInInspector] public int[,] tileMatrix;
 	[HideInInspector] public int[,] objectMatrix;
+	public int worldNumber;
 
 	private NavMeshSurface2d surface;
 
@@ -25,15 +26,16 @@ public class MapGeneratorScript : MonoBehaviour
 
 		surface = GameObject.Find("NavMesh 2D").GetComponent<NavMeshSurface2d>();
 		SaveData data = GS.LoadGame();
-		if (data.tileMatrix == null)
+		GS.currentData = data;
+		if (data == null || data.worlds[worldNumber] == null || data.worlds[worldNumber].tileMatrix == null)
 		{
 			GenerateNewWorld();
 			
 		}
 		else
 		{
-			tileMatrix = data.tileMatrix;
-			objectMatrix = data.objectMatrix;
+			tileMatrix = data.worlds[worldNumber].tileMatrix;
+			objectMatrix = data.worlds[worldNumber].objectMatrix;
 			
 		}
 		SaveTheWorld();
@@ -69,8 +71,8 @@ public class MapGeneratorScript : MonoBehaviour
 	}
 	void SaveTheWorld()
 	{
-		GS.currentData.tileMatrix = tileMatrix;
-		GS.currentData.objectMatrix = objectMatrix;
+		GS.currentData.worlds[worldNumber].tileMatrix = tileMatrix;
+		GS.currentData.worlds[worldNumber].objectMatrix = objectMatrix;
 	}
 	public void GenerateNewWorld()
 	{

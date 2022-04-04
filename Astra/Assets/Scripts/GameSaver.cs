@@ -56,6 +56,11 @@ public class GameSaver : MonoBehaviour
 [Serializable]
 public class SaveData
 {
+    public World[] worlds = new World[3];
+}
+[Serializable]
+public class World
+{
     public int[,] tileMatrix;
     public int[,] objectMatrix;
 }
