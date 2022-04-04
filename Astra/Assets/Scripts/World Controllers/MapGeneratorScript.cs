@@ -7,6 +7,7 @@ using System.Linq;
 using UnityEngine.AI;
 public class MapGeneratorScript : MonoBehaviour
 {
+	public TicksCounter TC;
 	public WorldNumberContainer WNC;
 	public GameSaver GS;
 	public Transform NavMesh;
@@ -28,10 +29,10 @@ public class MapGeneratorScript : MonoBehaviour
 		surface = GameObject.Find("NavMesh 2D").GetComponent<NavMeshSurface2d>();
 		SaveData data = GS.LoadGame();
 		GS.currentData = data;
-		if (data == null || data.worlds[worldNumber] == null || data.worlds[worldNumber].tileMatrix == null)
+		if (data == null || data.worlds[worldNumber] == null || data.worlds[worldNumber].tileMatrix == null || WNC.isRestarting[worldNumber])
 		{
 			GenerateNewWorld();
-			
+			WNC.isRestarting[worldNumber] = false;
 		}
 		else
 		{
@@ -74,6 +75,7 @@ public class MapGeneratorScript : MonoBehaviour
 	{
 		GS.currentData.worlds[worldNumber].tileMatrix = tileMatrix;
 		GS.currentData.worlds[worldNumber].objectMatrix = objectMatrix;
+		//WNC.isRestarting[worldNumber] = true;
 	}
 	public void GenerateNewWorld()
 	{
@@ -290,6 +292,15 @@ public class MapGeneratorScript : MonoBehaviour
 					GameObject.FindGameObjectWithTag("Player").transform.position = 1.6f * new Vector3(i, j, 0);
 				}
 			}
+		}
+	}
+
+	private void Update()
+	{
+		if(TC.tickNumber % 400 == 0 || Input.GetKeyDown("p"))
+		{
+			SaveTheWorld();
+			GS.SaveGame(GS.currentData);
 		}
 	}
 }

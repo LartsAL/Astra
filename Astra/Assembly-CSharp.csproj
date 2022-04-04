@@ -86,13 +86,13 @@
     <Compile Include="Assets\Scripts\Projectile Controllers\PurpleProjectileController.cs" />
     <Compile Include="Assets\Scripts\Rotator.cs" />
     <Compile Include="Assets\Scripts\SortingLayer.cs" />
-    <Compile Include="Assets\Scripts\TicksCounter.cs" />
     <Compile Include="Assets\Scripts\TravelingDecorationController.cs" />
     <Compile Include="Assets\Scripts\WeaponScript.cs" />
     <Compile Include="Assets\Scripts\World Controllers\BiomeGenerator.cs" />
     <Compile Include="Assets\Scripts\World Controllers\DeathScreenCaller.cs" />
     <Compile Include="Assets\Scripts\World Controllers\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\World Controllers\MapGeneratorScript.cs" />
+    <Compile Include="Assets\Scripts\World Controllers\TicksCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

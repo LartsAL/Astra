@@ -15,7 +15,10 @@ public class ItemController : MonoBehaviour
     private void Update()
     {
         localScale = transform.localScale;
-        text.text = amount.ToString();
+        if (text != null)
+        {
+            text.text = amount.ToString();
+        }
         
     }
 }

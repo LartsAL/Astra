@@ -5,4 +5,5 @@ using UnityEngine;
 public class WorldNumberContainer : MonoBehaviour
 {
     public int worldNumber;
+    public bool[] isRestarting = new bool[3];
 }

@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class CharacterControllerScript : MonoBehaviour
 {
+    public TicksCounter TC;
+    public WorldNumberContainer WNC;
+    public MapGeneratorScript MGS;
     public GameObject CraftsList;
     private bool areCraftsOpened;
 
@@ -272,6 +275,8 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Die()
     {
+        WNC.isRestarting[MGS.worldNumber] = true;
         GetComponent<DeathScreenCaller>().GameOver();
+        
     }
 }

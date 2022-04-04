@@ -27,4 +27,8 @@ public class MainMenuButtonManager : MonoBehaviour
         WNC.worldNumber = number;
         SceneManager.LoadScene("Main");
     }
+    public void EraseWorld(int number)
+    {
+        WNC.isRestarting[number] = true;
+    }
 }

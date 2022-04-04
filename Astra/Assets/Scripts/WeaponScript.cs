@@ -25,6 +25,8 @@ public class WeaponScript : MonoBehaviour
             canDamage = false;
             dmg = fixeddmg;
         }
-        angularSpeed = GetComponentInParent<SpinScript>().angularSpeed;
+        if (GetComponentInParent<SpinScript>() != null) {
+            angularSpeed = GetComponentInParent<SpinScript>().angularSpeed;
+        }
     }
 }
