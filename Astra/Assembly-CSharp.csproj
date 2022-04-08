@@ -62,8 +62,6 @@
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathSceneTool.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathSpawner.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\RoadMeshCreator.cs" />
-    <Compile Include="Assets\Scripts\CraftVisualisationController.cs" />
-    <Compile Include="Assets\Scripts\DeathScreenSceneRedirector.cs" />
     <Compile Include="Assets\Scripts\Effects Controllers\PurpleMagicBlowController.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\AIs\GhostAI.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\AIs\SlimeAI.cs" />
@@ -73,10 +71,14 @@
     <Compile Include="Assets\Scripts\Enemy Controllers\EnemyInfo.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\Follower.cs" />
     <Compile Include="Assets\Scripts\GameSaver.cs" />
-    <Compile Include="Assets\Scripts\GameStats.cs" />
+    <Compile Include="Assets\Scripts\InterfaceControllers\ButtonSpriteController.cs" />
+    <Compile Include="Assets\Scripts\InterfaceControllers\CraftVisualisationController.cs" />
+    <Compile Include="Assets\Scripts\InterfaceControllers\DeathScreenSceneRedirector.cs" />
+    <Compile Include="Assets\Scripts\InterfaceControllers\GameStats.cs" />
+    <Compile Include="Assets\Scripts\InterfaceControllers\MainMenuBackgroundController.cs" />
+    <Compile Include="Assets\Scripts\InterfaceControllers\MainMenuButtonManager.cs" />
+    <Compile Include="Assets\Scripts\InterfaceControllers\TravelingDecorationController.cs" />
     <Compile Include="Assets\Scripts\ItemController.cs" />
-    <Compile Include="Assets\Scripts\MainMenuBackgroundController.cs" />
-    <Compile Include="Assets\Scripts\MainMenuButtonManager.cs" />
     <Compile Include="Assets\Scripts\Player Controllers\CharacterControllerScript.cs" />
     <Compile Include="Assets\Scripts\Player Controllers\Craft.cs" />
     <Compile Include="Assets\Scripts\Player Controllers\CraftsController.cs" />
@@ -86,7 +88,6 @@
     <Compile Include="Assets\Scripts\Projectile Controllers\PurpleProjectileController.cs" />
     <Compile Include="Assets\Scripts\Rotator.cs" />
     <Compile Include="Assets\Scripts\SortingLayer.cs" />
-    <Compile Include="Assets\Scripts\TravelingDecorationController.cs" />
     <Compile Include="Assets\Scripts\WeaponScript.cs" />
     <Compile Include="Assets\Scripts\World Controllers\BiomeGenerator.cs" />
     <Compile Include="Assets\Scripts\World Controllers\DeathScreenCaller.cs" />
