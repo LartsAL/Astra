@@ -275,6 +275,7 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Die()
     {
+        Debug.Log("Раньше сядем - раньше выйдем");
         WNC.isRestarting[MGS.worldNumber] = true;
         GetComponent<DeathScreenCaller>().GameOver();
         

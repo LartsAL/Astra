@@ -24,23 +24,69 @@ public class MapGeneratorScript : MonoBehaviour
 
 	void Start()
     {
+		Debug.Log(")(0");
 		ES = GameObject.FindGameObjectWithTag("Player").GetComponent<EnemySpawner>(); // !
+		Debug.Log(")(1");
 		worldNumber = WNC.worldNumber;
+		Debug.Log(")(2");
 		surface = GameObject.Find("NavMesh 2D").GetComponent<NavMeshSurface2d>();
+		Debug.Log(")(3");
 		SaveData data = GS.LoadGame();
+		Debug.Log(")(4");
 		GS.currentData = data;
-		if (data == null || data.worlds[worldNumber] == null || data.worlds[worldNumber].tileMatrix == null || WNC.isRestarting[worldNumber])
+		Debug.Log(")(5");
+		try
 		{
-			GenerateNewWorld();
-			WNC.isRestarting[worldNumber] = false;
-		}
-		else
-		{
-			tileMatrix = data.worlds[worldNumber].tileMatrix;
-			objectMatrix = data.worlds[worldNumber].objectMatrix;
+			Debug.Log(")(трай");
+			if (WNC.isRestarting[worldNumber] || data == null ||  data.worlds ==null || data.worlds[worldNumber] == null || data.worlds[worldNumber].tileMatrix == null)
+			{
+				Debug.Log(")(Сохранение не рабочее");
+				GenerateNewWorld();
+				WNC.isRestarting[worldNumber] = false;
+				if (data.worlds == null)
+				{
+					Debug.Log(")(иф в трае");
+					SaveData newData = new SaveData();
+					newData.worlds = new World[3];
+					newData.worlds[0] = new World();
+					newData.worlds[1] = new World();
+					newData.worlds[2] = new World();
+					GS.currentData = newData;
+				}
+				if (data.worlds[worldNumber] == null)
+				{
+					Debug.Log(")(иф в трае для конкретного мира");
+					GS.currentData.worlds[worldNumber] = new World();
+				}
+			}
+			else
+			{
+				Debug.Log(")(Сохранение рабочее?");
+				tileMatrix = data.worlds[worldNumber].tileMatrix;
+				objectMatrix = data.worlds[worldNumber].objectMatrix;
+
+			}
 			
 		}
+		catch (IndexOutOfRangeException e)
+		{
+			Debug.Log(")(кетч");
+			SaveData newData = new SaveData();
+			newData.worlds = new World[3];
+			GS.currentData = newData;
+			GenerateNewWorld();
+			WNC.isRestarting[worldNumber] = false;
+			Debug.Log(")(message" + e.Message);
+		}
+		Debug.Log(")(6");
+		/*finally
+		{
+			Debug.Log(")(файнали");
+			GenerateNewWorld();
+			WNC.isRestarting[worldNumber] = false;
+		}*/
 		SaveTheWorld();
+		Debug.Log(")(7");
 
 		for (int i = 0; i < size; i++)
 		{
@@ -73,9 +119,14 @@ public class MapGeneratorScript : MonoBehaviour
 	}
 	void SaveTheWorld()
 	{
+		Debug.Log(")(6.1");
+		Debug.Log(")(6.1GS.currentData" + (GS.currentData==null));
+		Debug.Log(")(6.1GS.currentData.worlds" + (GS.currentData.worlds == null));
+		Debug.Log(")(6.1GS.currentData.worlds[worldNumber]" + (GS.currentData.worlds[worldNumber] == null));
 		GS.currentData.worlds[worldNumber].tileMatrix = tileMatrix;
+		Debug.Log(")(6.2");
 		GS.currentData.worlds[worldNumber].objectMatrix = objectMatrix;
-		//WNC.isRestarting[worldNumber] = true;
+		Debug.Log(")(6.3");
 	}
 	public void GenerateNewWorld()
 	{
