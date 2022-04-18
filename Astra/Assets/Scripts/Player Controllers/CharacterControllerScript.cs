@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class CharacterControllerScript : MonoBehaviour
 {
+    public float dyingTime;
     public TicksCounter TC;
     public WorldNumberContainer WNC;
     public MapGeneratorScript MGS;
@@ -275,9 +276,16 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Раньше сядем - раньше выйдем");
+        Debug.Log(")(MGS.worldNumber " + MGS.worldNumber);
         WNC.isRestarting[MGS.worldNumber] = true;
-        GetComponent<DeathScreenCaller>().GameOver();
+        StartCoroutine("OnDeath");
         
+    }
+
+    IEnumerator OnDeath()
+    {
+        yield return new WaitForSecondsRealtime(dyingTime);
+        GetComponent<DeathScreenCaller>().GameOver();
+        yield return null;
     }
 }

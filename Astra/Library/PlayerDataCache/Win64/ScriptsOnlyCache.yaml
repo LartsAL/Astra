@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - ButtonSpriteController
     - CharacterControllerScript
     - Craft
     - CraftVisualisationController
@@ -293,6 +294,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 15096}
     - Class: 114
       Script: {instanceID: 15300}
+    - Class: 114
+      Script: {instanceID: 15402}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -546,7 +549,7 @@ ScriptsOnlyBuild:
     className: CinemachinePixelPerfect
   - hash:
       serializedVersion: 2
-      Hash: 9754da89872b78a9977184c2dacf0eed
+      Hash: 24716656be3a453718d73acd20d50df0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MapGeneratorScript
@@ -762,7 +765,7 @@ ScriptsOnlyBuild:
     className: CraftsController
   - hash:
       serializedVersion: 2
-      Hash: 3e961447d0f2a0636141df0422715ae1
+      Hash: 82c78a31a290e10410a2bf431afeb97e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WorldNumberContainer
@@ -942,7 +945,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: f38ce5772964afbdb65275da57883892
+      Hash: 5c2f22ab39f1054be208e87bb81b1ee8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CharacterControllerScript
@@ -1260,6 +1263,12 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
+      Hash: b9bb95da44098d15feaaef9fcceb3149
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ButtonSpriteController
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1269,4 +1278,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/Main.unity
   - Assets/Scenes/DeathScreen.unity
-  playerPath: D:/UnityProjects/Enrime Projects/Astra/Builds/Build 8 72_72/Astra.exe
+  playerPath: D:/UnityProjects/Enrime Projects/Astra/Builds/Build 10 the paradox
+    of light (fuckit107)/Astra.exe
