@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class CharacterControllerScript : MonoBehaviour
 {
     public float dyingTime;
+    private bool isDying;
     public TicksCounter TC;
     public WorldNumberContainer WNC;
     public MapGeneratorScript MGS;
@@ -37,6 +38,7 @@ public class CharacterControllerScript : MonoBehaviour
     bool noColliderHackEnabled = false;
     void Start()
     {
+        isDying = false;
         areCraftsOpened = true;
         startColor = GetComponent<SpriteRenderer>().color;
         normalSpeed = speed;
@@ -54,7 +56,7 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Update()
     {
-        if (hp == 0)
+        if (hp <= 0)
         {
             Die();
         }
@@ -276,8 +278,9 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Die()
     {
-        Debug.Log(")(MGS.worldNumber " + MGS.worldNumber);
+        isDying = true;
         WNC.isRestarting[MGS.worldNumber] = true;
+        Debug.Log(")(WNC.isRestarting[MGS.worldNumber] " + WNC.isRestarting[MGS.worldNumber]);
         StartCoroutine("OnDeath");
         
     }

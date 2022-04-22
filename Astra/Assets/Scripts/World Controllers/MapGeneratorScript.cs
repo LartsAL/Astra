@@ -33,6 +33,7 @@ public class MapGeneratorScript : MonoBehaviour
 		{
 			if (WNC.isRestarting[worldNumber] || data == null ||  data.worlds ==null || data.worlds[worldNumber] == null || data.worlds[worldNumber].tileMatrix == null)
 			{
+				Debug.Log(")(должно генерироваться");
 				GenerateNewWorld();
 				WNC.isRestarting[worldNumber] = false;
 				if (data.worlds == null)

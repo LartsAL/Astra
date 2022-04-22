@@ -8,6 +8,11 @@ public class MainMenuButtonManager : MonoBehaviour
     public GameObject worldSlots;
     public GameSaver GS;
     public WorldNumberContainer WNC;
+
+    private void Start()
+    {
+        Debug.Log(")(!WNC.isRestarting[MGS.worldNumber] " + WNC.isRestarting[0]);
+    }
     public void Play()
     {
         //SceneManager.LoadScene("Main");

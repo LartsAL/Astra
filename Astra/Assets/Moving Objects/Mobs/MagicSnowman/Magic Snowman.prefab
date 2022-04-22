@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 9005828817700904352}
   deathSeconds: 1.2
-  maxHp: 30
+  maxHp: 40
   hp: 0
   vulCDfixed: 3
 --- !u!114 &3858140675019549796
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   degree: 0
   target: {fileID: 0}
-  projectile: {fileID: 2293905899123271289, guid: 33c779690b26ecf42a2402f225654bcd,
+  projectile: {fileID: 2293905899123271289, guid: c819f3f00ccb65b43b5ebf35181fb873,
     type: 3}
   arm: {fileID: 3701897139647397363}
   speed: 0
